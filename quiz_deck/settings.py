@@ -77,9 +77,8 @@ WSGI_APPLICATION = 'quiz_deck.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'mypassword',
+        'NAME': 'quiz_deck',
+        'USER': 'quiz_deck',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
