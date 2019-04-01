@@ -8,7 +8,8 @@ class Card(models.Model):
     # I went with question/answer instead of front/back
     question = models.TextField(max_length=255)
     answer = models.TextField(max_length=255)
-    categories = models.ManyToManyField(Category, blank=True)
+    categories = models.ManyToManyField('Category', blank=True)
+    decks = models.ManyToManyField('Deck')
     
     slug = models.SlugField(unique=True)
 
@@ -27,6 +28,7 @@ class Deck(models.Model):
 
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True)
+    
     
     def __str__(self):
         """String for representing the Model object."""
