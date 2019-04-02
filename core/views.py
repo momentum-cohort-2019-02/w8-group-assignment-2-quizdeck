@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.views import generic
@@ -7,15 +8,19 @@ from django.contrib.auth.models import User
 from core.forms import CreateCardForm
 from core.models import Card, Deck, Category
 
+=======
+from django.shortcuts import render
+from .models import Deck
+>>>>>>> 2623ee3db2414718911f5e69de0f98195b1581a1
 
 # Create your views here.
 
 def index(request):
     """View function for home page of site."""
-    # cards = Card.objects.all()
+    decks = Deck.objects.all()
     # Render the HTML template index.html with the data in the context variable
     response = render(request, 'index.html', {
-        # "cards": cards,
+        "decks": decks,
     })
     return response
 
@@ -30,6 +35,14 @@ def create(request):
 def play(request):
     """View function for starting a game."""
     response = render(request, 'play.html', {
+    })
+    return response
+
+def deck_detail(request, slug):
+    """View function for deck detail."""
+    deck = Deck.objects.filter(slug=slug)
+    response = render(request, 'deck_detail.html', {
+        "deck": deck
     })
     return response
 
