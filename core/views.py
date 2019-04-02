@@ -1,13 +1,13 @@
 from django.shortcuts import render
-
+from .models import Deck
 
 # Create your views here.
 def index(request):
     """View function for home page of site."""
-    # cards = Card.objects.all()
+    decks = Deck.objects.all()
     # Render the HTML template index.html with the data in the context variable
     response = render(request, 'index.html', {
-        # "cards": cards,
+        "decks": decks,
     })
     return response
 
@@ -22,5 +22,14 @@ def create(request):
 def play(request):
     """View function for starting a game."""
     response = render(request, 'play.html', {
+    })
+    return response
+
+
+def deck_detail(request, slug):
+    """View function for deck detail."""
+    deck = Deck.objects.filter(slug=slug)
+    response = render(request, 'deck_detail.html', {
+        "deck": deck
     })
     return response

@@ -4,4 +4,11 @@
 
     <p>Welcome to QuizDeck, an application that let's you create decks of cards, then quiz yourself on them!</p>
 
+    <div>Decks</div>
+    <div>
+        {% for deck in decks %}
+        <a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+        {% endfor %}
+    </div>
+
 {% endblock %}
