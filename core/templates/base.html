@@ -26,8 +26,10 @@
                 {% block sidebar %}
                     <ul class="sidebar-nav">
                         <li class="home"><i class="fa fa-home"></i><a href="{% url 'index' %}"> Home</a></li>
-                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}"> Create Card</a></li>
+                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}"> Create</a></li>
                         <li class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}"> Play</a></li>
+
+
 
                         <!-- {% if request.user.is_authenticated %}
                         <li class="user"><i class="fa fa-user"></i> {{ user.username }}</li> -->

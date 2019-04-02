@@ -13,20 +13,14 @@ def index(request):
 
 
 def create(request):
-    """View function for home page of site."""
-    # cards = Card.objects.all()
-    # Render the HTML template index.html with the data in the context variable
+    """View function for creating a card."""
     response = render(request, 'create.html', {
-        # "cards": cards,
     })
     return response
 
 
 def play(request):
-    """View function for home page of site."""
-    # cards = Card.objects.all()
-    # Render the HTML template index.html with the data in the context variable
+    """View function for starting a game."""
     response = render(request, 'play.html', {
-        # "cards": cards,
     })
     return response
