@@ -10,5 +10,4 @@ urlpatterns = [
     path('play/', views.play, name='play'),
     path('deck_detail/<slug:slug>', views.deck_detail, name='deck_detail'),
     path('deck/<slug:slug>/create/', views.create_card, name='create_card'),
-
 ]
