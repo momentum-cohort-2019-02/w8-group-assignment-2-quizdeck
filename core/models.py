@@ -31,7 +31,7 @@ class Deck(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True)
     
-     def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         self.set_slug()
         super().save(*args, **kwargs)
     
@@ -50,7 +50,7 @@ class Deck(models.Model):
         
         self.slug = slug
 
-        def get_absolute_url(self):
+    def get_absolute_url(self):
         return reverse('deck-detail', args=[str(self.slug)])
 
     def __str__(self):
