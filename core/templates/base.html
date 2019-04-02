@@ -28,13 +28,13 @@
                         <li class="home"><i class="fa fa-home"></i><a href="{% url 'index' %}"> Home</a></li>
 
                         <!-- {% if request.user.is_authenticated %}
-                        <li class="user"><i class="fa fa-user"></i> {{ user.username }}</li>
-                        <li class="new_post"><i class="fa fa-pencil-square-o"></i><a href="{% url 'post_new' %}"> New Post</a></li>
+                        <li class="user"><i class="fa fa-user"></i> {{ user.username }}</li> -->
+                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}"> Create Card</a></li>
 
-                        <li class="log"><i class="fa fa-times"></i><a href="{% url 'auth_logout' %}"> Logout</a></li>
+                        <!-- <li class="log"><i class="fa fa-times"></i><a href="{% url 'auth_logout' %}"> Logout</a></li>
                         {% else %}
-                        <li class="log"><i class="fa fa-user"></i><a href="{% url 'auth_login' %}"> Register / Login</a></li>
-                        {% endif %} -->
+                        <li class="log"><i class="fa fa-user"></i><a href="{% url 'auth_login' %}"> Register / Login</a></li> -->
+                        {% endif %}
                     </ul>
                 {% endblock %}
                 </div>
