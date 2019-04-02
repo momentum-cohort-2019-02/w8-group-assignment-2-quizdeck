@@ -8,8 +8,9 @@ class CardAdmin(admin.ModelAdmin):
     """Class that creates the way Card info is displayed in Admin. Calls on Card Model"""
     list_display = (
         'question',
-        'answer'
+        'answer',
     )
+    exclude = ('slug',)
 
 @admin.register(Deck)
 class DeckAdmin(admin.ModelAdmin):
