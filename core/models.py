@@ -50,8 +50,16 @@ class Card(models.Model):
 class Deck(models.Model):
     """Model representing a Deck of cards."""
 
+    #Need to make number of cards auto populate?
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True)
+
+    card_count = models.CharField(max_length=100, null=True)
+    difficulty = models.CharField(max_length=100, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    date_added = models.DateTimeField(auto_now_add=True, null=True)
+    description = models.TextField(max_length=1000, default='N/A', null=True)
+
     
     def save(self, *args, **kwargs):
         self.set_slug()
@@ -92,3 +100,5 @@ class Category(models.Model):
     def get_absolute_url(self):
         """String for representing the Model object."""
         return self.name
+
+
