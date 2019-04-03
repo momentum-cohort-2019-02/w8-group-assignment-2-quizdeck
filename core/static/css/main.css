@@ -1,3 +1,67 @@
-header {
-    color: red;
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    color: white;
+}
+
+.red-banner {
+    background-color: darkred;
+}
+
+.blue-banner {
+    background-color: darkblue;
+}
+
+.green-banner {
+    background-color: darkgreen;
+}
+
+.logo {
+    display: flex;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    flex: auto;
+}
+
+a:hover {
+    color: white;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 1rem;
+    
+}
+
+.nav-option:hover {
+    height: 6rem;
+}
+
+.decks-option {
+    background-color: darkred;
+}
+
+.create-option {
+    background-color: darkgreen;
+}
+
+.profiles-option {
+    background-color: darkblue;
 }
