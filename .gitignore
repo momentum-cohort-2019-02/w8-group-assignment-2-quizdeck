@@ -137,4 +137,7 @@ dmypy.json
 
 .vscode
 
+node_modules/
+static/build/
+
 # End of https://www.gitignore.io/api/django
