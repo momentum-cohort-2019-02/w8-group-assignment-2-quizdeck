@@ -1,17 +1,18 @@
-<<<<<<< HEAD
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.views import generic
 from django.contrib.auth.models import User
 
+# from django.contrib.auth import authenticate, logout, login
+from django.contrib.auth.decorators import login_required
+
 # Our App imports:
 from core.forms import CreateCardForm
 from core.models import Card, Deck, Category
 
-=======
-from django.shortcuts import render
-from .models import Deck
->>>>>>> 2623ee3db2414718911f5e69de0f98195b1581a1
+
+
 
 # Create your views here.
 
