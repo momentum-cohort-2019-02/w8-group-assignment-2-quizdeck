@@ -9,4 +9,6 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('play/', views.play, name='play'),
     path('deck_detail/<slug:slug>', views.deck_detail, name='deck_detail'),
+    path('create/card', views.create_card, name='create_card'),
+    path('card_detail/<slug:slug>', views.card_detail, name='card_detail'),
 ]
