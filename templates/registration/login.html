@@ -11,7 +11,7 @@
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
   {% else %}
-    <p>Please login to see this page.</p>
+    <br><p>Please login to create a card or QuizDeck.</p>
   {% endif %}
 {% endif %}
 
@@ -28,13 +28,13 @@
   <td>{{ form.password.label_tag }}</td>
   <td>{{ form.password }}</td>
 </tr>
-</table>
+</table><br>
 
 <input type="submit" value="login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+<br><p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}

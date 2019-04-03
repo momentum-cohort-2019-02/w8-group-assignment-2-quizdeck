@@ -26,9 +26,16 @@
                 {% block sidebar %}
                     <ul class="sidebar-nav">
                         <li class="home"><i class="fa fa-home"></i><a href="{% url 'index' %}"> Home</a></li>
-                        <li class="login"><i class="fa fa-pencil-square-o"></i><a href="{% url 'login' %}"> Login</a></li>
-                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}"> Create</a></li>
-                        <li class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}"> Play</a></li>
+
+                        {% if user.is_authenticated %}
+                        <li>User: {{ user.get_username }}</li>
+                        <li><a class="logout" href="{% url 'logout'%}?next={{request.path}}"> Logout</a></li>   
+                        {% else %}
+                        <li><a class="login" href="{% url 'login'%}?next={{request.path}}"> Login</a></li>   
+                        {% endif %} 
+
+                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}">Create</a></li>
+                        <li class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}">Play</a></li>
 
                     </ul>
                 {% endblock %}
