@@ -5,7 +5,12 @@ from .models import Card, Deck, Category
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
-    pass
+    """Class that creates the way Card info is displayed in Admin. Calls on Card Model"""
+    list_display = (
+        'question',
+        'answer',
+    )
+    exclude = ('slug',)
 
 @admin.register(Deck)
 class DeckAdmin(admin.ModelAdmin):
