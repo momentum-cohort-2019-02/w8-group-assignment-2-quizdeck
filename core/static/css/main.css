@@ -67,3 +67,20 @@
 .profiles-option {
     background-color: darkblue;
 }
+
+.content {
+    margin: 3rem;
+}
+
+.login-form {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    width: 300px;
+    padding: 2rem;
+}
+
+.forgot {
+    margin-top: 1rem;
+}
