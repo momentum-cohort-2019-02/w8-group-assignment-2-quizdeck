@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Default installed Apps
-    # 'registration',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,7 +133,13 @@ STATIC_URL = '/static/'
 
 INTERNAL_IPS = '127.0.0.1'
 
-# Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())
+
+# AUTH_USER_MODEL = 'core.User'
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
