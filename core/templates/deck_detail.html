@@ -7,9 +7,9 @@
 
 <div>Deck Name: {{ deck.title }}</div><br>
 
-<div>Number of Cards:</div><br>
+<div>Card Count: {{ deck.card_count }}</div><br>
 
-<div>Description:</div><br>
+<div>Description: {{ deck.description }}</div><br>
 
 <button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}">Play</a></button>
 
