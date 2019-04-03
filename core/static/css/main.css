@@ -27,13 +27,13 @@
     display: flex;
 }
 
-a {
+.head-link {
     color: white;
     text-decoration: none;
     flex: auto;
 }
 
-a:hover {
+.head-link:hover {
     color: white;
 }
 
@@ -47,7 +47,6 @@ a:hover {
     align-items: center;
     font-size: 30px;
     padding: 1rem;
-    
 }
 
 .nav-option:hover {
