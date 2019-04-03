@@ -1,1 +1,36 @@
-<p>{{ deck.title }}</p>
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<center><h2 class="">{{ deck.title }} Deck Info</h2></center>
+
+<div>Deck Name: {{ deck.title }}</div><br>
+
+<div>Card Count: {{ deck.card_count }}</div><br>
+
+<div>Description: {{ deck.description }}</div><br>
+
+<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}">Play</a></button>
+
+{% if user.is_authenticated %}
+<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">Get Deck</a></button>   
+{% else %}
+<button><a href="{% url 'auth_login'%}?next={{request.path}}">Get Deck</a></button>   
+{% endif %}
+
+{% if user.is_authenticated %}
+<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">Edit Deck</a></button>   
+{% else %}
+<button><a href="{% url 'auth_login'%}?next={{request.path}}">Edit Deck</a></button>   
+{% endif %}
+
+<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">View Cards</a></button></div>
+
+
+<!-- Get deck (if user doesn't own it)
+
+Edit deck button (if user does own )-->
+
+
+{% endblock %}
