@@ -47,8 +47,7 @@ def deck_detail(request, slug):
     })
     return response
 
-def create_card(request):
-    
+def create_card(request):   
 
     if request.method == 'POST':
         form = CreateCardForm(request.POST
@@ -67,3 +66,11 @@ def create_card(request):
     template = 'create_card.html'
     context = {'form': form}
     return render(request, template, context)
+
+def card_detail(request, slug):
+    """View function for deck detail."""
+    card = Card.objects.get(slug=slug)
+    response = render(request, 'card_detail.html', {
+        "card": card
+    })
+    return response

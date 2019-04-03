@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 class Card(models.Model):
@@ -12,8 +14,28 @@ class Card(models.Model):
     decks = models.ManyToManyField('Deck')
     
     slug = models.SlugField(unique=True)
-
     
+    def save(self, *args, **kwargs):
+        self.set_slug()
+        super().save(*args, **kwargs)
+    
+
+    def set_slug(self):
+        if self.slug:
+            return
+        
+        base_slug = slugify(self.question)
+        slug = base_slug
+        n = 0
+
+        while Card.objects.filter(slug=slug).count():
+            n += 1
+            slug = base_slug + "-" + str(n)
+        
+        self.slug = slug
+
+    def get_absolute_url(self):
+        return reverse('card_detail', args=[str(self.slug)])
 
     def display_category(self):
         """Create a string for the Category. This is required to display category in Admin."""
@@ -35,7 +57,6 @@ class Deck(models.Model):
         self.set_slug()
         super().save(*args, **kwargs)
     
-
     def set_slug(self):
         if self.slug:
             return
