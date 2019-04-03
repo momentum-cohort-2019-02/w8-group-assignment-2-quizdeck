@@ -14,41 +14,33 @@
         <!-- From browserify -->
         <script src="{% static 'build/bundle.js' %}"></script>
         <!-- Add additional CSS in static file -->
-        <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
     <body>
         <header>
-<!-- Magically plugged this in from codepen and it works: https://codepen.io/ClaireLarsen/pen/XmVyVX/  -->
-            <h1>QuizDeck</h1>
-            <h3><i class="fa fa-cogs fa-1x"></i> Create and Build Decks of Flashcards!</h3>
-        </header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-2">
-                {% block sidebar %}
-                    <ul class="sidebar-nav">
-                        <li class="home"><i class="fa fa-home"></i><a href="{% url 'index' %}"> Home</a></li>
-
-                        {% if user.is_authenticated %}
-                        <li>User: {{ user.get_username }}</li>
-                        <li><a class="logout" href="{% url 'auth_logout'%}?next={{request.path}}"> Logout</a></li>   
-                        {% else %}
-                        <li><a class="login" href="{% url 'auth_login'%}?next={{request.path}}"> Login</a></li>   
-                        {% endif %} 
-
-                        <li class="create"><i class="fa fa-pencil-square-o"></i><a href="{% url 'create' %}">Create</a></li>
-                        <li class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}">Play</a></li>
-
-                    </ul>
-                {% endblock %}
-                </div>
-                <div class="col-sm-10">
-                    <div class="block-content">
-                    {% block content %}{% endblock %}
-                    </div>
-                </div>
-
+            <div class="banner {% block bannerclass %}{% endblock %}">
+                <div class="logo"><i class="fa fa-cogs fa-3x"></i><h1> QuizDeck</h1></div>
+                {% if user.is_authenticated %}
+                <div>
+                    <i class="fa fa-user fa-2x"></i><span> {{ user.get_username }} | </span>
+                    <a href="{% url 'auth_logout'%}?next={{request.path}}">Logout</a>
+                </div>   
+                {% else %}
+                 <div>
+                    <i class="fa fa-user fa-2x"></i>
+                    <span><a href="{% url 'auth_login'%}?next={{request.path}}">Login</a></span>
+                </div>   
+                {% endif %} 
             </div>
+            <div class="nav">
+                <a href="{% url 'index' %}"><div class="nav-option decks-option">Decks</div></a>
+                <a href="{% url 'create' %}"><div class="nav-option create-option">Create</div></a>
+                <a href="{% url 'play' %}"><div class="nav-option profiles-option">Profiles</div></a>
+            </div>
+            <h3>Create and Build Decks of Flashcards!</h3>
+        </header>
+        <div class="content">
+            {% block content %}{% endblock %}
         </div>
     </body>
 </html>
