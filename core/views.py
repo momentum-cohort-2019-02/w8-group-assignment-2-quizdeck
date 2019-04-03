@@ -47,18 +47,23 @@ def deck_detail(request, slug):
     })
     return response
 
-def create_card(request, slug):
-    card = get_object_or_404(Deck, slug=slug)
+def create_card(request):
+    
 
     if request.method == 'POST':
         form = CreateCardForm(request.POST
         )
         if form.is_valid():
             card = form.save(commit=False)
-            card.deck = Deckcard.save()
-            return redirect(deck.get_absolute_url())
+            card.save()
+            return redirect(card.get_absolute_url())
         else:
             form = CreateCardForm()
-            template = 'core/create.html'
-            context = {'form': form}
-            return render(request, template, context)
+        template = 'create_card.html'
+        context = {'form': form}
+        return render(request, template, context)
+    
+    form = CreateCardForm()
+    template = 'create_card.html'
+    context = {'form': form}
+    return render(request, template, context)

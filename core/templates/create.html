@@ -4,10 +4,11 @@
 
 
 <center><h2 class="">Create a card.</h2></center>
+
     <form method='POST'>
         {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="create_card">Create</button>
+            <!-- <button type="submit" class="create_card">Create</button> -->
     </form>
  
 
