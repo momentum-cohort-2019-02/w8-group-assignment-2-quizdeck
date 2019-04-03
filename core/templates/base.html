@@ -24,19 +24,20 @@
                 {% if user.is_authenticated %}
                 <div>
                     <i class="fa fa-user fa-2x"></i><span> {{ user.get_username }} | </span>
-                    <a href="{% url 'auth_logout'%}?next={{request.path}}">Logout</a>
+                    <a class="head-link" href="{% url 'auth_logout'%}?next={{request.path}}">Logout</a>
                 </div>   
                 {% else %}
                  <div>
                     <i class="fa fa-user fa-2x"></i>
-                    <span><a href="{% url 'auth_login'%}?next={{request.path}}">Login</a></span>
+                    <span><a class="head-link" href="{% url 'auth_login'%}?next={{request.path}}">Login</a></span>
                 </div>   
                 {% endif %} 
             </div>
             <div class="nav">
-                <a href="{% url 'index' %}"><div class="nav-option decks-option">Decks</div></a>
-                <a href="{% url 'create' %}"><div class="nav-option create-option">Create</div></a>
-                <a href="{% url 'play' %}"><div class="nav-option profiles-option">Profiles</div></a>
+
+                <a class="head-link" href="{% url 'index' %}"><div class="nav-option decks-option">Decks</div></a>
+                <a class="head-link" href="{% url 'create' %}"><div class="nav-option create-option">Create</div></a>
+                <a class="head-link" href="{% url 'play' %}"><div class="nav-option profiles-option">Profiles</div></a>
 
             </div>
             <h3>Create and Build Decks of Flashcards!</h3>

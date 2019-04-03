@@ -64,7 +64,6 @@ class Deck(models.Model):
     def save(self, *args, **kwargs):
         self.set_slug()
         super().save(*args, **kwargs)
-
     
     def set_slug(self):
         if self.slug:
