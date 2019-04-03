@@ -18,6 +18,7 @@
     </head>
     <body>
         <header>
+
             <div class="banner {% block bannerclass %}{% endblock %}">
                 <div class="logo"><i class="fa fa-cogs fa-3x"></i><h1> QuizDeck</h1></div>
                 {% if user.is_authenticated %}
@@ -33,9 +34,11 @@
                 {% endif %} 
             </div>
             <div class="nav">
+
                 <a class="head-link" href="{% url 'index' %}"><div class="nav-option decks-option">Decks</div></a>
                 <a class="head-link" href="{% url 'create' %}"><div class="nav-option create-option">Create</div></a>
                 <a class="head-link" href="{% url 'play' %}"><div class="nav-option profiles-option">Profiles</div></a>
+
             </div>
             <h3>Create and Build Decks of Flashcards!</h3>
         </header>

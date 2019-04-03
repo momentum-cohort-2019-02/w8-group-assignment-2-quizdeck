@@ -41,7 +41,7 @@ def play(request):
 
 def deck_detail(request, slug):
     """View function for deck detail."""
-    deck = Deck.objects.filter(slug=slug)
+    deck = Deck.objects.get(slug=slug)
     response = render(request, 'deck_detail.html', {
         "deck": deck
     })
