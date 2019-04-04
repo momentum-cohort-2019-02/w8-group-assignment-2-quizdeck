@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% block title %}<title>QuizDeck</title>{% endblock %}
+        {% block title %}{% endblock %}
         {% block meta %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +40,6 @@
                 <a class="head-link" href="{% url 'play' %}"><div class="nav-option profiles-option">Profiles</div></a>
 
             </div>
-            <h3>Create and Build Decks of Flashcards!</h3>
         </header>
         <div class="content">
             {% block content %}{% endblock %}
