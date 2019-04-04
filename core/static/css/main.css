@@ -94,7 +94,7 @@
     padding: 2rem;
 }
 
-.button {
+.createbutton {
     background-color: darkgreen;
     color: white;
     font-size: 30px;
@@ -110,26 +110,26 @@
     height: 4rem;
 }
 
-.button:hover {
+.createbutton:hover {
     background-color:lightseagreen;
 }
 
-a:link {
+.createbutton:link {
     text-decoration: none;
     color:white;
 }
 
-a:active {
+.createbutton:active {
     text-decoration: none;
     color:white;
 }
 
-a:visited {
+.createbutton:visited {
     text-decoration: none;
     color:white;
 }
   
-a:hover {
+.createbutton:hover {
     text-decoration: none;
     color:white;
 }
