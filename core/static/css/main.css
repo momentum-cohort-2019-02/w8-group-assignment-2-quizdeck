@@ -84,3 +84,52 @@
 .forgot {
     margin-top: 1rem;
 }
+
+.createcard {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    width: auto;
+    padding: 2rem;
+}
+
+.createbutton {
+    background-color: darkgreen;
+    color: white;
+    font-size: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: center;
+    text-decoration:none;
+    height: 4rem;
+}
+
+.createbutton:hover {
+    background-color:lightseagreen;
+}
+
+.createbutton:link {
+    text-decoration: none;
+    color:white;
+}
+
+.createbutton:active {
+    text-decoration: none;
+    color:white;
+}
+
+.createbutton:visited {
+    text-decoration: none;
+    color:white;
+}
+  
+.createbutton:hover {
+    text-decoration: none;
+    color:white;
+}
