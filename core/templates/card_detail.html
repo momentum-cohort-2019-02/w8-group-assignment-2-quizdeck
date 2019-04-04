@@ -3,9 +3,10 @@
 {% block title %}<title>QuizDeck</title>{% endblock %}
 
 {% block content %}
+<center><div class="createcard"><h2>Question</h2><br>
+<p>{{ card.question }}</p></div></center><br><br>
 
-<p>{{ card.question }}</p>
-
-<p>{{ card.answer }}</p>
+<center><div class="createcard"><h2 class="">Answer</h2><br>
+<p>{{ card.answer }}</p></div></center>
 
 {% endblock %}
