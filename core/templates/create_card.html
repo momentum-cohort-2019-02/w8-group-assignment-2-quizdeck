@@ -4,11 +4,11 @@
 
 {% block content %}
 
-    <h2 class="">Create a card.</h2>
+    <h2 class="createcard">Create a card.</h2>
         <form method='POST'>
             {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="create_card">Create</button>
+                <button type="submit" class="">Create</button>
         </form>
 
 {% endblock %}
