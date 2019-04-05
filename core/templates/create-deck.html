@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}<title>QuizDeck</title>{% endblock %}
+
+{% block content %}
+
+    <center><h2 class="">Create Deck</h2><br>
+        <form method="POST" class="">
+            {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="createbutton hvr-skew">Create</button>
+        </form></center>
+
+{% endblock %}
