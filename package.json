@@ -1,7 +1,6 @@
 {
     "private": true,
     "dependencies": {
-        "browserify": "^16.2.3",
         "deepmerge": "^3.2.0",
         "js-cookie": "^2.2.0",
         "watchify": "^3.11.1"

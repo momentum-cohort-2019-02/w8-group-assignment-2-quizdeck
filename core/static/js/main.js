@@ -22,48 +22,58 @@ function request (url, options) {
   return fetch(url, deepmerge(defaultOptions, options))
 }
 
-function createCard (input) {
-  // finds the div id="create-card" on the create page
-  const createCardDiv = qs('#create-card')
-  // & sets it to empty
-  createCardDiv.innerHTML = ''
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-  const card = document.createElement('div')
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-  const question = document.createElement('form')
-
+  return array;
 }
 
-// document.addEventListener('DOMContentLoaded', function () {
-  
-//   const createCardForm = qs('#create_card')
-//   createCardForm.addEventListener('submit', function (event) {
-//     event.preventDefault()
+if ( document.URL.includes("random_play") ) {
+  let card_div = document.querySelector('.card')
+  window.addEventListener('DOMContentLoaded', function () {
+    fetch('/core/get_cards/')
+      .then(function(response) {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+        return response.json()
+      })
+      .then(function(data) {
+        cards = shuffle(data['cards'])
+        console.log(cards)
+        return cards
+      })
+      .then(function(cards) {
+        let card = cards[0]
+        card_div.innerHTML = card[0]
+        card_div.addEventListener('click', function() {
+          if (card.indexOf(card_div.innerHTML) === 0) {
+            card_div.innerHTML = card[1]
+          } else { card_div.innerHTML = card[0] }
+        })
+        qS('.quiz-nav-buttons').addEventListener('click', function(event) {
+          if ((event.target.innerHTML === 'Previous') && cards.indexOf(card) > 0) {
+            card = cards[cards.indexOf(card)-1]
+          } else if ((event.target.innerHTML === 'Next') && cards.indexOf(card) < cards.length-1) {
+            card = cards[cards.indexOf(card)+1]
+          }
+          card_div.innerHTML = card[0]
+        })
+      })
+        
+  })
+}
 
-//     const cardField = qs('#task-field')
-//     const body = {
-//       'task': taskField.value
-//     }
-//     taskField.value = ''
-
-//     request(newTaskForm.action, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(body)
-//     })
-//       .then(response => {
-//         if (!response.ok) {
-//           throw Error(response.statusText)
-//         }
-//         return response.text()
-//       })
-//       .then(text => {
-//         const taskFragment = htmlToNodes(text)
-//         q('#task-list').appendChild(taskFragment)
-//       })
-//   })
-// })
