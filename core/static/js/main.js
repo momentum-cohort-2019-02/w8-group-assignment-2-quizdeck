@@ -41,9 +41,11 @@ function shuffle(array) {
   return array;
 }
 
+// Checks to make sure the right page is loaded by looking at url
 if ( document.URL.includes("random_play") ) {
-  let card_div = document.querySelector('.card')
   window.addEventListener('DOMContentLoaded', function () {
+
+    // Fetches all cards from database from the get_cards view, returned as question / answer pairs
     fetch('/core/get_cards/')
       .then(function(response) {
         if (!response.ok) {
@@ -51,19 +53,29 @@ if ( document.URL.includes("random_play") ) {
         }
         return response.json()
       })
+
+      // Shuffles the returned cards into a randomized list of question / answer pairs
       .then(function(data) {
         cards = shuffle(data['cards'])
-        console.log(cards)
         return cards
       })
+
+      // Play functionality
       .then(function(cards) {
+
+        // Displays the first card in the random list in the card html holder
+        let card_div = document.querySelector('.card')
         let card = cards[0]
         card_div.innerHTML = card[0]
+
+        // Event listener to toggle between question / answer
         card_div.addEventListener('click', function() {
           if (card.indexOf(card_div.innerHTML) === 0) {
             card_div.innerHTML = card[1]
           } else { card_div.innerHTML = card[0] }
         })
+
+        // Event listener to go between cards
         qS('.quiz-nav-buttons').addEventListener('click', function(event) {
           if ((event.target.innerHTML === 'Previous') && cards.indexOf(card) > 0) {
             card = cards[cards.indexOf(card)-1]
