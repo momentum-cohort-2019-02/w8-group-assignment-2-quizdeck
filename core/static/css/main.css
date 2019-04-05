@@ -168,3 +168,21 @@
 .quiz-nav-button:hover {
     background-color:lightseagreen;
 }
+
+.material-icons-menu {
+    font-family: 'Material Icons';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 500px;  /* Preferred icon size */
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: lightseagreen;
+}

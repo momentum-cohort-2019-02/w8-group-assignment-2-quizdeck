@@ -82,3 +82,9 @@ def random_play(request):
 def get_cards(request):
     cards = Card.objects.all()
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
+
+def all_decks(request):
+    return render(request, 'all_decks.html',)
+
+def my_decks(request):
+    return render(request, 'my_decks.html',)

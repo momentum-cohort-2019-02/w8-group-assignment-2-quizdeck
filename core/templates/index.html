@@ -5,14 +5,22 @@
 {% block title %}<title>QuizDeck</title>{% endblock %}
 
 {% block content %}
-    <h3>Create and Build Decks of Flashcards!</h3>
-    <p>Welcome to QuizDeck, an application that let's you create decks of cards, then quiz yourself on them!</p>
-
-    <div>Decks</div>
-    <div>
-        {% for deck in decks %}
-        <a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
-        {% endfor %}
-    </div>
+    <center><h1>Deck Menu</h1>
+    <!-- <h3>Select All Decks or My Decks to continue.</h3></center> -->
+    <center><div>
+        <i class="material-icons-menu">view_carousel</i><a class="" href="{% url 'all_decks' %}">View All Decks</a>
+        <i class="material-icons-menu">view_carousel</i><a class="" href="{% url 'my_decks' %}">View My Decks</a>
+    </div></center>
 
 {% endblock %}
+
+
+
+
+
+<!-- <div>All Decks</div>
+    <center><div>
+        {% for deck in decks %}
+        <i class="material-icons">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+        {% endfor %}
+    </div></center> -->

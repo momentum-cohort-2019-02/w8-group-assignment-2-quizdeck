@@ -12,5 +12,8 @@ urlpatterns = [
     path('create/card', views.create_card, name='create_card'),
     path('card_detail/<slug:slug>', views.card_detail, name='card_detail'),
     path('random_play/', views.random_play, name='random_play'),
-    path('get_cards/', views.get_cards, name='get_cards')
+    path('get_cards/', views.get_cards, name='get_cards'),
+    path('all_decks/', views.all_decks, name='all_decks'),
+    path('my_decks/', views.my_decks, name='my_decks'),
+
 ]

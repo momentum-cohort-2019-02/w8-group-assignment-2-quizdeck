@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<center><h1 class="">My Decks</h1></center>
+
+
+    <center><h3>Browse user decks</h3></center>
+
+    <center><div>
+        <i class="material-icons">view_carousel</i><a href="{% url 'all_decks' %}">My Deck 1</a>
+        <i class="material-icons">view_carousel</i><a href="{% url 'my_decks' %}">My Deck 2</a>
+    </div></center>
+
+{% endblock %}
