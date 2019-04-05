@@ -67,7 +67,7 @@ function play(cards) {
   card_div.innerHTML = card[0]
 
   // Listener to flip the card
-  card_div.addEventListener('click', function() {
+  card_div.addEventListener('click', function () {
     if (card.indexOf(card_div.innerHTML) === 0) {
       card_div.innerHTML = card[1]
     } else { card_div.innerHTML = card[0] }
@@ -87,8 +87,15 @@ function play(cards) {
 
 // Checking to make sure we are on the right page
 if ( document.URL.includes("random_play") ) {
-  
   window.addEventListener('DOMContentLoaded', function () {
-    get_cards('/core/get_cards/').then(play(cards))
+    get_cards('/core/get_cards/').then(cards => play(cards))
+  })
+}
+
+if ( document.URL.includes("play_deck") ) {
+  let urlWords = document.URL.split('/')
+  let deckSlug = urlWords[urlWords.length-2]
+  window.addEventListener('DOMContentLoaded', function () {
+    get_cards(`/core/get_deck/${deckSlug}`).then(cards => play(cards))
   })
 }
