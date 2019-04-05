@@ -79,6 +79,10 @@ def card_detail(request, slug):
 def random_play(request):
     return render(request, 'random_play.html',)
 
+def play_deck(request, slug):
+    deck = Deck.objects.get(slug=slug)
+    return render(request, 'random_play.html', context= {"deck": deck})
+
 def get_cards(request):
     cards = Card.objects.all()
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
@@ -88,3 +92,8 @@ def all_decks(request):
 
 def my_decks(request):
     return render(request, 'my_decks.html',)
+    
+def get_deck(request, slug):
+    deck = Deck.objects.get(slug=slug)
+    cards = deck.cards.all()
+    return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
