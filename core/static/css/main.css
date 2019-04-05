@@ -133,3 +133,38 @@
     text-decoration: none;
     color:white;
 }
+
+.card {
+    margin: auto;
+    width: 80%;
+    max-width: 40rem;
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.quiz-nav-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-nav-button {
+    background-color: darkgreen;
+    color: white;
+    font-size: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: center;
+    text-decoration:none;
+    height: 4rem;
+    margin: 4%;
+}
+
+.quiz-nav-button:hover {
+    background-color:lightseagreen;
+}

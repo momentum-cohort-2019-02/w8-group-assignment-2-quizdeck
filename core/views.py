@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.views import generic
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 
 # from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
@@ -74,3 +75,10 @@ def card_detail(request, slug):
         "card": card
     })
     return response
+
+def random_play(request):
+    return render(request, 'random_play.html',)
+
+def get_cards(request):
+    cards = Card.objects.all()
+    return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
