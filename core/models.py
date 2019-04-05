@@ -11,7 +11,7 @@ class Card(models.Model):
     question = models.TextField(max_length=255)
     answer = models.TextField(max_length=255)
     categories = models.ManyToManyField('Category', blank=True)
-    decks = models.ManyToManyField('Deck')
+    decks = models.ManyToManyField('Deck', related_name="cards")
     
     slug = models.SlugField(unique=True)
     
@@ -73,7 +73,7 @@ class Deck(models.Model):
         slug = base_slug
         n = 0
 
-        while Post.objects.filter(slug=slug).count():
+        while Deck.objects.filter(slug=slug).count():
             n += 1
             slug = base_slug + "-" + str(n)
         

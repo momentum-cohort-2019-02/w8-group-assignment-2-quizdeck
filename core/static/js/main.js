@@ -22,6 +22,7 @@ function request (url, options) {
   return fetch(url, deepmerge(defaultOptions, options))
 }
 
+// Takes an array and returns the same array but in a random order
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -41,51 +42,61 @@ function shuffle(array) {
   return array;
 }
 
-// Checks to make sure the right page is loaded by looking at url
+function get_cards(url) {
+  // Gets Json data with all cards listed as question/answer couples
+  return (fetch(url)
+    .then(function(response) {
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      return response.json()
+    })
+
+    // Then shuffle the list of cards randomly
+    .then(function(data) {
+      let cards = shuffle(data['cards'])
+      console.log(cards)
+      return cards
+    }))
+}
+
+function play(cards) {
+  // Shows the question of the first card in the shuffled list
+  let card_div = document.querySelector('.card')
+  let card = cards[0]
+  card_div.innerHTML = card[0]
+
+  // Listener to flip the card
+  card_div.addEventListener('click', function () {
+    if (card.indexOf(card_div.innerHTML) === 0) {
+      card_div.innerHTML = card[1]
+    } else { card_div.innerHTML = card[0] }
+  })
+
+  // Listener to switch between cards
+  qS('.quiz-nav-buttons').addEventListener('click', function(event) {
+    if ((event.target.innerHTML === 'Previous') && cards.indexOf(card) > 0) {
+      card = cards[cards.indexOf(card)-1]
+    } else if ((event.target.innerHTML === 'Next') && cards.indexOf(card) < cards.length-1) {
+      card = cards[cards.indexOf(card)+1]
+    }
+    card_div.innerHTML = card[0]
+  })
+}
+
+
+// Checking to make sure we are on the right page
 if ( document.URL.includes("random_play") ) {
   window.addEventListener('DOMContentLoaded', function () {
+    get_cards('/core/get_cards/').then(cards => play(cards))
+  })
+}
 
-    // Fetches all cards from database from the get_cards view, returned as question / answer pairs
-    fetch('/core/get_cards/')
-      .then(function(response) {
-        if (!response.ok) {
-          throw Error(response.statusText)
-        }
-        return response.json()
-      })
-
-      // Shuffles the returned cards into a randomized list of question / answer pairs
-      .then(function(data) {
-        cards = shuffle(data['cards'])
-        return cards
-      })
-
-      // Play functionality
-      .then(function(cards) {
-
-        // Displays the first card in the random list in the card html holder
-        let card_div = document.querySelector('.card')
-        let card = cards[0]
-        card_div.innerHTML = card[0]
-
-        // Event listener to toggle between question / answer
-        card_div.addEventListener('click', function() {
-          if (card.indexOf(card_div.innerHTML) === 0) {
-            card_div.innerHTML = card[1]
-          } else { card_div.innerHTML = card[0] }
-        })
-
-        // Event listener to go between cards
-        qS('.quiz-nav-buttons').addEventListener('click', function(event) {
-          if ((event.target.innerHTML === 'Previous') && cards.indexOf(card) > 0) {
-            card = cards[cards.indexOf(card)-1]
-          } else if ((event.target.innerHTML === 'Next') && cards.indexOf(card) < cards.length-1) {
-            card = cards[cards.indexOf(card)+1]
-          }
-          card_div.innerHTML = card[0]
-        })
-      })
-        
+if ( document.URL.includes("play_deck") ) {
+  let urlWords = document.URL.split('/')
+  let deckSlug = urlWords[urlWords.length-2]
+  window.addEventListener('DOMContentLoaded', function () {
+    get_cards(`/core/get_deck/${deckSlug}`).then(cards => play(cards))
   })
 }
 
