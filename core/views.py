@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 # Our App imports:
-from core.forms import CreateCardForm
+from core.forms import CreateCardForm, NewDeckForm
 from core.models import Card, Deck, Category
 
 
@@ -49,6 +49,7 @@ def deck_detail(request, slug):
     return response
 
 def create_card(request):   
+    """View function for CreateCardForm ."""
 
     if request.method == 'POST':
         form = CreateCardForm(request.POST
@@ -92,6 +93,25 @@ def all_decks(request):
 
 def my_decks(request):
     return render(request, 'my_decks.html',)
+    
+def new_deck(request):
+    if request.method == 'POST':
+        form = NewDeckForm(request.POST
+        )
+        if form.is_valid():
+            deck = form.save(commit=False)
+            deck.save()
+            return redirect(deck.get_absolute_url())
+        else:
+            form = NewDeckForm()
+        template = 'create-deck.html'
+        context = {'form': form}
+        return render(request, template, context)
+    
+    form = NewDeckForm()
+    template = 'create-deck.html'
+    context = {'form': form}
+    return render(request, template, context)
     
 def get_deck(request, slug):
     deck = Deck.objects.get(slug=slug)

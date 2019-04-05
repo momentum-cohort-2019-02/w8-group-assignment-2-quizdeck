@@ -80,7 +80,7 @@ class Deck(models.Model):
         self.slug = slug
 
     def get_absolute_url(self):
-        return reverse('deck-detail', args=[str(self.slug)])
+        return reverse('deck_detail', args=[str(self.slug)])
 
     def __str__(self):
         """String for representing the Model object."""

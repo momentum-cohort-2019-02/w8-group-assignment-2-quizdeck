@@ -9,19 +9,19 @@
     align-items: center;
     padding: 2rem 4rem;
     color: white;
-    background-color: lightseagreen;
+    background-color: rgb(76, 32, 178);
 }
 
 .red-banner {
-    background-color: darkred;
-}
-
-.blue-banner {
-    background-color: darkblue;
+    background-color: lightseagreen;
 }
 
 .green-banner {
-    background-color: darkgreen;
+    background-color: rgb(10, 194, 81);
+}
+
+.blue-banner {
+    background-color: rgb(240, 37, 74);
 }
 
 .logo {
@@ -48,8 +48,8 @@
     align-items: center;
     font-size: 30px;
     padding: 1rem;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .nav-option:hover {
@@ -57,15 +57,15 @@
 }
 
 .decks-option {
-    background-color: darkred;
+    background-color: lightseagreen;
 }
 
 .create-option {
-    background-color: darkgreen;
+    background-color: rgb(10, 194, 81);
 }
 
 .profiles-option {
-    background-color: darkblue;
+    background-color: rgb(240, 37, 74);
 }
 
 .content {
@@ -95,14 +95,14 @@
 }
 
 .createbutton {
-    background-color: darkgreen;
+    background-color: rgb(10, 194, 81);
     color: white;
     font-size: 30px;
     display: inline-flex;
     flex-wrap: wrap;
     align-items:center;
     justify-content:center;
-    border-radius: 10px;
+    border-radius: 50px;
     padding-left: 2rem;
     padding-right: 2rem;
     justify-content: center;
@@ -111,7 +111,7 @@
 }
 
 .createbutton:hover {
-    background-color:lightseagreen;
+    background-color:rgb(76, 32, 178);
 }
 
 .createbutton:link {
@@ -156,7 +156,7 @@
     flex-wrap: wrap;
     align-items:center;
     justify-content:center;
-    border-radius: 10px;
+    border-radius: 50px;
     padding-left: 2rem;
     padding-right: 2rem;
     justify-content: center;
@@ -185,4 +185,5 @@
     white-space: nowrap;
     direction: ltr;
     color: lightseagreen;
+    background-color:rgb(76, 32, 178);
 }

@@ -99,3 +99,4 @@ if ( document.URL.includes("play_deck") ) {
     get_cards(`/core/get_deck/${deckSlug}`).then(cards => play(cards))
   })
 }
+
