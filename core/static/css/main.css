@@ -84,3 +84,25 @@
 .forgot {
     margin-top: 1rem;
 }
+
+.card {
+    margin: auto;
+    width: 80%;
+    max-width: 40rem;
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+
+.quiz-nav-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-nav-button {
+    color: white;
+    background-color: darkgreen;
+    margin: 4%;
+    width: 10rem;
+    height: 4rem;
+}
