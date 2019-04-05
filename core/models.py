@@ -73,14 +73,14 @@ class Deck(models.Model):
         slug = base_slug
         n = 0
 
-        while Post.objects.filter(slug=slug).count():
+        while Deck.objects.filter(slug=slug).count():
             n += 1
             slug = base_slug + "-" + str(n)
         
         self.slug = slug
 
     def get_absolute_url(self):
-        return reverse('deck-detail', args=[str(self.slug)])
+        return reverse('deck_detail', args=[str(self.slug)])
 
     def __str__(self):
         """String for representing the Model object."""
