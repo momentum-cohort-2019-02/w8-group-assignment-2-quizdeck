@@ -12,7 +12,7 @@ class Card(models.Model):
     answer = models.TextField(max_length=255)
     categories = models.ManyToManyField('Category', blank=True)
     decks = models.ManyToManyField('Deck', related_name="cards")
-    score = models.ManyToManyField('User', related_name='card_score', through='Score')
+    scores = models.ManyToManyField(User, related_name='card_score', through='Score')
     
     slug = models.SlugField(unique=True)
     
