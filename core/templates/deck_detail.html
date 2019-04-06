@@ -15,7 +15,7 @@
 
 <div>Description: {{ deck.description }}</div><br>
 
-<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'play' %}">Play</a></div>
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'play_deck' slug=deck.slug %}">Play</a></div>
 
 {% if user.is_authenticated %}
 <div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Get Deck</a></div>   
