@@ -7,7 +7,7 @@
 <center><h1 class="">My Decks</h1></center>
 
 
-    <center><h3>Browse user decks</h3></center>
+    <center><h3>Browse user decks</h3></center><br>
 
     {% for deck in decks %}
     <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>

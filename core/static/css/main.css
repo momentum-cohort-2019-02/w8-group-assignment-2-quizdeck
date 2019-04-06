@@ -9,19 +9,19 @@
     align-items: center;
     padding: 2rem 4rem;
     color: white;
-    background-color: rgb(76, 32, 178);
+    background-color: rgb(30, 83, 218);
 }
 
 .decks-banner {
-    background-color: lightseagreen;
+    background-color: #02c8a7;
 }
 
 .create-banner {
-    background-color: rgb(240, 37, 74);
+    background-color: #f53240;
 }
 
 .profiles-banner {
-    background-color: rgb(10, 194, 81);
+    background-color: #f9be02;
 }
 
 .logo {
@@ -57,15 +57,15 @@
 }
 
 .decks-option {
-    background-color: lightseagreen;
+    background-color: #02c8a7;
 }
 
 .create-option {
-    background-color: rgb(240, 37, 74);
+    background-color: #f53240;
 }
 
 .profiles-option {
-    background-color: rgb(10, 194, 81);
+    background-color: #f9be02;
 }
 
 .content {
@@ -95,7 +95,7 @@
 }
 
 .createbutton {
-    background-color: rgb(10, 194, 81);
+    background-color: #7CDBD5;
     color: white;
     font-size: 30px;
     display: inline-flex;
@@ -111,7 +111,7 @@
 }
 
 .createbutton:hover {
-    background-color:rgb(76, 32, 178);
+    background-color:rgb(30, 83, 218);
 }
 
 .createbutton:link {
@@ -149,7 +149,7 @@
 }
 
 .quiz-nav-button {
-    background-color: darkgreen;
+    background-color: #7CDBD5;
     color: white;
     font-size: 30px;
     display: inline-flex;
@@ -166,7 +166,7 @@
 }
 
 .quiz-nav-button:hover {
-    background-color:lightseagreen;
+    background-color:#02c8a7;
 }
 
 .material-icons-menu {
@@ -184,7 +184,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    color: lightseagreen;
+    color: #02c8a7;
 }
 
 .material-icons-select {
@@ -202,6 +202,40 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    color: lightseagreen;
-    width:
+    color: #02c8a7;
+}
+
+.paginator {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+    font-weight: bold;
+    background-color: #02c8a7;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+.paginator-links:link {
+    text-decoration: none;
+    color:#f9be02;
+}
+
+.paginator-links:active {
+    text-decoration: none;
+    color:#f9be02;
+}
+
+.paginator-links:visited {
+    text-decoration: none;
+    color:#f9be02;
+}
+  
+.paginator-links:hover {
+    text-decoration: none;
+    color:rgb(30, 83, 218);
 }

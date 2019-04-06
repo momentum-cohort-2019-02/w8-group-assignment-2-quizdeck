@@ -7,11 +7,31 @@
 <center><h1 class="">All Decks</h1></center>
 
 
-    <center><h3>Browse all decks</h3></center>
+    <center><h3>Browse all decks</h3></center><br>
+
+
 
     {% for deck in decks %}
     <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
     {% endfor %}
+
+    <center><div class="paginator">
+            {% if decks.has_previous %}
+                <a class="paginator-links" href="?sorter={{ sorter }}&page=1">&laquo; First</a>
+                <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.previous_page_number }}"> Previous </a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ decks.number }} of {{ decks.paginator.num_pages }}
+            </span>
+    
+            {% if decks.has_next %}
+                <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.next_page_number }}"> Next</a>
+                <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.paginator.num_pages }}"> Last &raquo;</a>
+            {% endif %}
+    </div></center>
+
+
 
 {% endblock %}
 

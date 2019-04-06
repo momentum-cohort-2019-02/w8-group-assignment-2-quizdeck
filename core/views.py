@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.views import generic
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 # from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
@@ -90,6 +91,9 @@ def get_cards(request):
 
 def all_decks(request):
     decks = Deck.objects.all()
+    paginator = Paginator(decks, 6)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
     return render(request, 'all_decks.html', {
         "decks": decks,
     })
