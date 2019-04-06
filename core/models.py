@@ -12,7 +12,7 @@ class Card(models.Model):
     answer = models.TextField(max_length=255)
     categories = models.ManyToManyField('Category', blank=True)
     decks = models.ManyToManyField('Deck', related_name="cards")
-    scores = models.ManyToManyField(User, related_name='card_score', through='Score')
+    scores = models.ManyToManyField(User, related_name='card_scores', through='Score')
     
     slug = models.SlugField(unique=True)
     
@@ -103,7 +103,7 @@ class Category(models.Model):
         return self.name
 
 class Score(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
-    card = models.ForeignKey('Card', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
     right_answers = models.IntegerField(default=0)
-    wrong_answers = models.ImageField(default=0)
+    wrong_answers = models.IntegerField(default=0)

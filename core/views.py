@@ -4,13 +4,14 @@ from django.views.generic import View
 from django.views import generic
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+import json
 
 # from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 
 # Our App imports:
 from core.forms import CreateCardForm, NewDeckForm
-from core.models import Card, Deck, Category
+from core.models import Card, Deck, Category, Score
 
 
 
@@ -19,7 +20,7 @@ from core.models import Card, Deck, Category
 
 def index(request):
     """View function for home page of site."""
-    decks = Deck.objects.all()
+    decks = Deck.objects.all()    
     # Render the HTML template index.html with the data in the context variable
     response = render(request, 'index.html', {
         "decks": decks,
@@ -132,3 +133,16 @@ def get_deck(request, slug):
     deck = Deck.objects.get(slug=slug)
     cards = deck.cards.all()
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
+
+def mark_card(request):
+    data = json.loads(request.body)
+    card = Card.objects.get(question=data['card_question'])
+    score, created = request.user.score_set.get_or_create(card=card)
+    print(data)
+    if data['mark'] == 'right':
+        score.right_answers += 1
+    else: 
+        score.wrong_answers += 1
+    score.save
+    
+    return JsonResponse({'ok': 'OK', 'right': score.right_answers, 'wrong': score.wrong_answers})
