@@ -5,6 +5,7 @@ from django.views import generic
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 import json
+from django.core.paginator import Paginator
 
 # from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
@@ -110,6 +111,21 @@ def get_cards(request):
     cards = Card.objects.all()
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
 
+def all_decks(request):
+    decks = Deck.objects.all()
+    paginator = Paginator(decks, 6)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+    return render(request, 'all_decks.html', {
+        "decks": decks,
+    })
+
+def my_decks(request):
+    decks = Deck.objects.all()
+    return render(request, 'my_decks.html', {
+        "decks": decks,
+    })
+    
 def new_deck(request):
     if request.method == 'POST':
         form = NewDeckForm(request.POST
