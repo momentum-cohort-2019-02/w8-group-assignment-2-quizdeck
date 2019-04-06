@@ -2,6 +2,6 @@ from quiz_deck.settings import *
 
 import django_heroku
 
-Debug = False
+DEBUG = False
 
 django_heroku.settings(locals())

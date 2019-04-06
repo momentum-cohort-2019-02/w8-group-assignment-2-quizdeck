@@ -33,21 +33,6 @@ def create(request):
     })
     return response
 
-
-def play(request):
-    """View function for starting a game."""
-    response = render(request, 'play.html', {
-    })
-    return response
-
-def deck_detail(request, slug):
-    """View function for deck detail."""
-    deck = Deck.objects.get(slug=slug)
-    response = render(request, 'deck_detail.html', {
-        "deck": deck
-    })
-    return response
-
 def create_card(request):   
     """View function for CreateCardForm ."""
 
@@ -68,6 +53,42 @@ def create_card(request):
     template = 'create_card.html'
     context = {'form': form}
     return render(request, template, context)
+
+
+def play(request):
+    """View function for starting a game."""
+    response = render(request, 'play.html', {
+    })
+    return response
+
+def deck_detail(request, slug):
+    """View function for deck detail."""
+    deck = Deck.objects.get(slug=slug)
+    response = render(request, 'deck_detail.html', {
+        "deck": deck
+    })
+    return response
+
+# def create_card(request):   
+#     """View function for CreateCardForm ."""
+
+#     if request.method == 'POST':
+#         form = CreateCardForm(request.POST
+#         )
+#         if form.is_valid():
+#             card = form.save(commit=False)
+#             card.save()
+#             return redirect(card.get_absolute_url())
+#         else:
+#             form = CreateCardForm()
+#         template = 'create_card.html'
+#         context = {'form': form}
+#         return render(request, template, context)
+    
+#     form = CreateCardForm()
+#     template = 'create_card.html'
+#     context = {'form': form}
+#     return render(request, template, context)
 
 def card_detail(request, slug):
     """View function for deck detail."""
