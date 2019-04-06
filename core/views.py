@@ -154,11 +154,10 @@ def mark_card(request):
     data = json.loads(request.body)
     card = Card.objects.get(question=data['card_question'])
     score, created = request.user.score_set.get_or_create(card=card)
-    print(data)
     if data['mark'] == 'right':
         score.right_answers += 1
     else: 
         score.wrong_answers += 1
-    score.save
+    score.save()
     
-    return JsonResponse({'ok': 'OK', 'right': score.right_answers, 'wrong': score.wrong_answers})
+    return JsonResponse({'ok': 'OK', 'right': score.right_answers, 'wrong': score.wrong_answers, 'created': created})
