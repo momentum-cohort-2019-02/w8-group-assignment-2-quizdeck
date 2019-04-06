@@ -6,16 +6,14 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('create/', views.create, name='create'),
+    path('create/', views.create_all, name='create'),
     path('play/', views.play, name='play'),
     path('deck_detail/<slug:slug>', views.deck_detail, name='deck_detail'),
-    path('create/card', views.create_card, name='create_card'),
     path('card_detail/<slug:slug>', views.card_detail, name='card_detail'),
     path('random_play/', views.random_play, name='random_play'),
     path('get_cards/', views.get_cards, name='get_cards'),
     path('all_decks/', views.all_decks, name='all_decks'),
     path('my_decks/', views.my_decks, name='my_decks'),
-    path('create/deck', views.new_deck, name='new_deck'),
     path('get_deck/<slug:slug>/', views.get_deck, name='get_deck'),
     path('play_deck/<slug:slug>/', views.play_deck, name='play_deck'),
     path('mark_card/', views.mark_card, name='mark_card'),
