@@ -85,6 +85,8 @@ function play(cards) {
 }
 
 
+
+
 // Checking to make sure we are on the right page
 if ( document.URL.includes("random_play") ) {
   window.addEventListener('DOMContentLoaded', function () {
