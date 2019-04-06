@@ -1,13 +1,24 @@
 
+<<<<<<< HEAD
 
+=======
+{% block bannerclass %}create-banner{% endblock %}
+
+{% block title %}<title>QuizDeck</title>{% endblock %}
+>>>>>>> origin
 
 {% block content %}
 
     <center><h2 class="">Create Card</h2><br>
         <form method="POST" class="createcard">
             {% csrf_token %}
+<<<<<<< HEAD
                 {{ card_form.as_p }}
                 <button type="submit" class="createbutton hvr-skew">Create</button>
+=======
+                {{ form.as_p }}
+                <button type="submit" class="createbutton hvr-fade">Create</button>
+>>>>>>> origin
         </form></center>
 
 {% endblock %}

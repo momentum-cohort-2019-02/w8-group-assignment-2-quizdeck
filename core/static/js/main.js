@@ -60,10 +60,27 @@ function get_cards(url) {
     }))
 }
 
+function addMarkButtons(div, card_div, answeredCards) {
+  // Listener to mark right or wrong
+  div.addEventListener('click', function(event) {
+    if (event.target.classList[1] === 'answer') {
+      let bool = event.target.classList[0]
+      let body = {'mark': bool, 'card_question': card_div.innerHTML}
+      fetch('/core/mark_card/', {method: 'POST', headers: {'X-CSRFToken': Cookies.get('csrftoken'),'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+        .then(response => response.json()).then(function(data) {
+          answeredCards.push(card_div.innerHTML)
+          console.log(data)
+          div.innerHTML = data['message']
+        })
+    }
+  })
+}
+
 function play(cards) {
   // Shows the question of the first card in the shuffled list
   let card_div = document.querySelector('.card')
   let card = cards[0]
+  let answeredCards = []
   card_div.innerHTML = card[0]
 
   // Listener to flip the card
@@ -81,7 +98,12 @@ function play(cards) {
       card = cards[cards.indexOf(card)+1]
     }
     card_div.innerHTML = card[0]
+    if (!(answeredCards.includes(card_div.innerHTML))){
+      qS('.right-wrong-buttons').innerHTML = '<div class="right answer">I got it right!</div><div class="wrong answer">Show me again...</div>'
+    } else {qS('.right-wrong-buttons').innerHTML = '<span>You already answered.</span>'}
   })
+  
+  addMarkButtons(qS('.right-wrong-buttons'), card_div, answeredCards)
 }
 
 

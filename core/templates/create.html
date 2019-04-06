@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block bannerclass %}green-banner{% endblock %}
+{% block bannerclass %}create-banner{% endblock %}
 
 {% block content %}
 
@@ -44,6 +44,17 @@
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<center><h2><a class="createbutton hvr-fade" href="{% url 'create_card' %}"> Create Card</a> <a class="createbutton hvr-fade" href="{% url 'new_deck' %}"> Create Deck</a></h2></center>
+
+<center><h2 class="">Create Card</h2><br>
+    <form method="POST" class="createcard">
+        {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="createbutton hvr-skew">Create</button>
+    </form></center>
+>>>>>>> origin
 
 
 {% endblock %}

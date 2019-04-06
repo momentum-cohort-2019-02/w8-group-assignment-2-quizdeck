@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
+{% block bannerclass %}decks-banner{% endblock %}
+
 {% block content %}
+
+<!-- Add icons/navigation -->
 
 
 <center><h2 class="">{{ deck.title }} Deck Info</h2></center>
@@ -11,23 +15,23 @@
 
 <div>Description: {{ deck.description }}</div><br>
 
-<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'play' %}">Play</a></button>
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'play_deck' slug=deck.slug %}">Play</a></div>
 
 {% if user.is_authenticated %}
-<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">Get Deck</a></button>   
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Get Deck</a></div>   
 {% else %}
-<button><a href="{% url 'auth_login'%}?next={{request.path}}">Get Deck</a></button>   
+<div><a href="{% url 'auth_login'%}?next={{request.path}}" class="createbutton hvr-fade">Get Deck</a></div>   
 {% endif %}
 
 {% if user.is_authenticated %}
 {% if request.user is deck.author %}
-<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">Edit Deck</a></button>   
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Edit Deck</a></div>   
 {% endif %}
 {% else %}
-<button><a href="{% url 'auth_login'%}?next={{request.path}}">Edit Deck</a></button>   
+<div><a href="{% url 'auth_login'%}?next={{request.path}}" class="createbutton hvr-fade">Edit Deck</a></div>   
 {% endif %}
 
-<button class="play"><i class="fa fa-pencil-square-o"></i><a href="{% url 'index'%}">View Cards</a></button></div>
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">View Cards</a></div></div>
 
 
 <!-- Get deck (if user doesn't own it)
