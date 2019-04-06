@@ -156,8 +156,10 @@ def mark_card(request):
     score, created = request.user.score_set.get_or_create(card=card)
     if data['mark'] == 'right':
         score.right_answers += 1
+        message = "Congrats!"
     else: 
         score.wrong_answers += 1
+        message = "OK, will do!"
     score.save()
-    
-    return JsonResponse({'ok': 'OK', 'right': score.right_answers, 'wrong': score.wrong_answers, 'created': created})
+
+    return JsonResponse({'message': message, 'right': score.right_answers, 'wrong': score.wrong_answers, 'created': created})
