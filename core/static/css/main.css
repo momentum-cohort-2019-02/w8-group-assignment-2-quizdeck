@@ -12,16 +12,16 @@
     background-color: rgb(76, 32, 178);
 }
 
-.red-banner {
+.decks-banner {
     background-color: lightseagreen;
 }
 
-.green-banner {
-    background-color: rgb(10, 194, 81);
+.create-banner {
+    background-color: rgb(240, 37, 74);
 }
 
-.blue-banner {
-    background-color: rgb(240, 37, 74);
+.profiles-banner {
+    background-color: rgb(10, 194, 81);
 }
 
 .logo {
@@ -61,11 +61,11 @@
 }
 
 .create-option {
-    background-color: rgb(10, 194, 81);
+    background-color: rgb(240, 37, 74);
 }
 
 .profiles-option {
-    background-color: rgb(240, 37, 74);
+    background-color: rgb(10, 194, 81);
 }
 
 .content {
@@ -172,8 +172,8 @@
 .material-icons-menu {
     font-family: 'Material Icons';
     font-weight: bold;
-    font-style: normal;
-    font-size: 500px;  /* Preferred icon size */
+    font-style: italic;
+    font-size: 300px;  /* Preferred icon size */
     display: inline-flex;
     flex-wrap: wrap;
     align-items:center;
@@ -185,5 +185,23 @@
     white-space: nowrap;
     direction: ltr;
     color: lightseagreen;
-    background-color:rgb(76, 32, 178);
+}
+
+.material-icons-select {
+    font-family: 'Material Icons';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 125px;  /* Preferred icon size */
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: lightseagreen;
+    width:
 }

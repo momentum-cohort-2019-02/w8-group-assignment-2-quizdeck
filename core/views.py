@@ -89,10 +89,25 @@ def get_cards(request):
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
 
 def all_decks(request):
-    return render(request, 'all_decks.html',)
+    decks = Deck.objects.all()
+    decks_by_6 = []
+    new_deck_list = []
+    for i, deck in enumerate(decks):
+        new_deck_list.append(deck)
+        if i % 6 == 0:
+            if i > 0:
+                decks_by_6.append(new_deck_list)
+            new_deck_list = []
+        
+    return render(request, 'all_decks.html', {
+        "decks": decks_by_6[0],
+    })
 
 def my_decks(request):
-    return render(request, 'my_decks.html',)
+    decks = Deck.objects.all()
+    return render(request, 'my_decks.html', {
+        "decks": decks,
+    })
     
 def new_deck(request):
     if request.method == 'POST':
