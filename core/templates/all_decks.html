@@ -2,8 +2,6 @@
 
 {% block bannerclass %}decks-banner{% endblock %}
 
-
-
 {% block content %}
 
 <center><h1 class="">All Decks</h1></center>
@@ -11,130 +9,9 @@
 
     <center><h3>Browse all decks</h3></center>
 
-<!--Carousel Wrapper-->
-<div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-        <!--Controls-->
-        <div class="controls-top">
-          <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-          <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-        </div>
-        <!--/.Controls-->
-      
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
-          <li data-target="#carousel-with-lb" data-slide-to="1" class="secondary-color"></li>
-          <li data-target="#carousel-with-lb" data-slide-to="2" class="secondary-color"></li>
-        </ol>
-        <!--/.Indicators-->
-      
-        <!--Slides and lightbox-->
-        
-        <div class="carousel-inner mdb-lightbox" role="listbox">
-          <div id="mdb-lightbox-ui"></div>
-          <!--First slide-->
-          
-          <div class="carousel-item active text-center">
-            {% for deck in decks %}
-            <figure class="col-md-4 d-md-inline-block">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a></a>
-            </figure>
-            {% endfor %}
-          </div>
-          
-          <!--/.First slide-->
-      
-          <!--Second slide-->
-          <div class="carousel-item text-center">
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-          </div>
-          <!--/.Second slide-->
-      
-          <!--Third slide-->
-          <div class="carousel-item text-center">
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-
-            <figure class="col-md-4 d-md-inline-block">
-                <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg" data-size="1600x1067">
-                <i class="material-icons-select img-fluid">view_carousel</i>
-                <div>Deck Name: {{ deck.title }}</div></a>            
-            </figure>
-      
-          </div>
-          <!--/.Third slide-->
-      
-        </div>
-        <!--/.Slides-->
-      
-      </div>
-      <!--/.Carousel Wrapper-->
+    {% for deck in decks %}
+    <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+    {% endfor %}
 
 {% endblock %}
 
