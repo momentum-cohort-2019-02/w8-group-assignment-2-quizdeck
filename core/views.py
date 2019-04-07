@@ -132,5 +132,20 @@ def mark_card(request):
 
 def profile_page(request, username):
     user = User.objects.get(username=username)
-    decks = user.decks_owned.all()
-    return render(request, 'profile_page.html', {'user': user, 'decks': decks})
+    scores = Score.objects.filter(user=user)
+    rights = 0
+    total = 0
+    for score in scores:
+        rights += score.right_answers
+        total += score.right_answers
+        total += score.wrong_answers
+    percent = int(100*(rights/total))
+    return render(request, 'profile_page.html', {'user': user, 'percent': percent})
+
+def profile_decks(request, username):
+    user = User.objects.get(username=username)
+    decks = user.decks_authored.all()
+    paginator = Paginator(decks, 6)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+    return render(request, 'profile_decks.html', {'user': user, 'decks': decks})

@@ -57,7 +57,7 @@ class Deck(models.Model):
 
     card_count = models.CharField(max_length=100, null=True)
     difficulty = models.CharField(max_length=100, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='decks_authored', null=True)
     owners = models.ManyToManyField(User, related_name='decks_owned')
     date_added = models.DateTimeField(auto_now_add=True, null=True)
     description = models.TextField(max_length=1000, default='N/A', null=True)

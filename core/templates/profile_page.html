@@ -2,6 +2,24 @@
 
 {% block content %}
 
+<div class="stats-card">
+    <h3 class="stats-username">{{ user.username }}</h3>
+    <p class="stat">Decks Authored: {{ user.decks_authored.count }}</p>
+    <p class="stat">Decks Owned: {{ user.decks_owned.count }}</p>
+    <p class="stat">Cards Authored: {{ user.cards_authored.count }}</p>
+    <p class="stat">Cards Owned: {{ user.cards_owned.count }}</p>
+    <p class="stat">Correct Guesses: {{ percent }}%</p>
+</div>
 
+<div class="profile-nav">
+    <div class="profile-part">
+        <i class="material-icons-select">view_carousel</i><br>
+        <a class="createbutton" href="{% url 'profile_decks' username=user.username %}">{{ user.username }}'s Decks</a>
+    </div>
+    <div class="profile-part">
+        <i class="fa fa-question-circle"></i><br>
+        <a class="createbutton" href="">{{ user.username }}'s Cards</a>
+    </div>
+</div>
 
 {% endblock %}
