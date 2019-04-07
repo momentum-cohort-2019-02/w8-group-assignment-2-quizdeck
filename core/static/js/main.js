@@ -122,3 +122,12 @@ if ( document.URL.includes("play_deck") ) {
   })
 }
 
+
+
+if ( document.URL.includes('users') && document.URL.includes('decks') ) {
+  qS('.profile-options').addEventListener('click', function(event) {
+    if (event.target.classList.contains('authored')) {
+
+    }
+  })
+}

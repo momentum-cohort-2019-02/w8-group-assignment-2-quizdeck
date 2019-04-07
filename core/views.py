@@ -99,11 +99,15 @@ def create_all(request):
         
         if deck_form.is_valid():
             deck = deck_form.save(commit=False)
+            deck.author = request.user
+            request.user.decks_owned.add(deck)
             deck.save()
             return redirect(deck.get_absolute_url())
 
         if card_form.is_valid():
             card = card_form.save(commit=False)
+            card.author = request.user
+            request.user.cards_owned.add(card)
             card.save()
             return redirect(card.get_absolute_url())
 
