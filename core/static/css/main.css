@@ -145,6 +145,9 @@
     text-align: center;
     padding-top: 10rem;
     padding-bottom: 10rem;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    border-radius: 5px;
 }
 
 .quiz-nav-buttons {
@@ -291,4 +294,55 @@
 .decksbutton:hover {
     text-decoration: none;
     background-color:#027cc8;
+}
+
+.username {
+    color: white;
+}
+
+.username:hover {
+    color: white;
+}
+
+.profile-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 50%;
+}
+
+.profile-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fa-question-circle {
+    font-size: 80px;
+    color: #02c8a7;
+    width: 150px;
+    height: 100px;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    margin: auto;
+    border-radius: 5px;
+    display: flex; 
+    justify-content:center;
+    align-items: center;
+}
+
+.stats-card {
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    padding: 2rem;
+    margin: auto;
+    width: 30%;
+    margin-bottom: 3rem;
+}
+
+.stats-username {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }

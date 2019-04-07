@@ -92,9 +92,9 @@ function play(cards) {
 
   // Listener to switch between cards
   qS('.quiz-nav-buttons').addEventListener('click', function(event) {
-    if ((event.target.innerHTML === 'Previous') && cards.indexOf(card) > 0) {
+    if ((event.target.classList.contains('previous')) && cards.indexOf(card) > 0) {
       card = cards[cards.indexOf(card)-1]
-    } else if ((event.target.innerHTML === 'Next') && cards.indexOf(card) < cards.length-1) {
+    } else if ((event.target.classList.contains('next')) && cards.indexOf(card) < cards.length-1) {
       card = cards[cards.indexOf(card)+1]
     }
     card_div.innerHTML = card[0]

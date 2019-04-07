@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 import json
 from django.core.paginator import Paginator
-
+from django.db.models import Q
 from django.urls import reverse, reverse_lazy
 
 # from django.contrib.auth import authenticate, logout, login
@@ -116,11 +116,9 @@ def create_all(request):
         'deck_form': deck_form,
     })
 
-
-
 def mark_card(request):
     data = json.loads(request.body)
-    card = Card.objects.get(question=data['card_question'])
+    card = Card.objects.get(Q(question=data['card_question'])|Q(answer=data['card_question']))
     score, created = request.user.score_set.get_or_create(card=card)
     if data['mark'] == 'right':
         score.right_answers += 1
@@ -131,3 +129,23 @@ def mark_card(request):
     score.save()
 
     return JsonResponse({'message': message, 'right': score.right_answers, 'wrong': score.wrong_answers, 'created': created})
+
+def profile_page(request, username):
+    user = User.objects.get(username=username)
+    scores = Score.objects.filter(user=user)
+    rights = 0
+    total = 0
+    for score in scores:
+        rights += score.right_answers
+        total += score.right_answers
+        total += score.wrong_answers
+    percent = int(100*(rights/total))
+    return render(request, 'profile_page.html', {'user': user, 'percent': percent})
+
+def profile_decks(request, username):
+    user = User.objects.get(username=username)
+    decks = user.decks_authored.all()
+    paginator = Paginator(decks, 6)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+    return render(request, 'profile_decks.html', {'user': user, 'decks': decks})
