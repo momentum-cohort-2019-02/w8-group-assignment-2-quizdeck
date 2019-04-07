@@ -17,4 +17,5 @@ urlpatterns = [
     path('get_deck/<slug:slug>/', views.get_deck, name='get_deck'),
     path('play_deck/<slug:slug>/', views.play_deck, name='play_deck'),
     path('mark_card/', views.mark_card, name='mark_card'),
+    path('users/<str:username>', views.profile_page, name='profile_page'),
 ]
