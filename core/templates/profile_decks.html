@@ -4,9 +4,17 @@
 
 <h2>{{ user.username }}'s Decks</h2>
 
-{% for deck in decks %}
-<i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
-{% endfor %}
+<div class="profile-options">
+    <div class="profile-option authored active">Authored Decks</div>
+    <div class="profile-option owned">Owned Decks</div>
+</div>
+<div class="profile-decks">
+    {% for deck in decks %}
+    <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+    {% endfor %}
+</div>
+
+
 
 <center><div class="paginator">
         {% if decks.has_previous %}

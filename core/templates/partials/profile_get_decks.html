@@ -1,0 +1,3 @@
+{% for deck in decks %}
+<i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+{% endfor %}
