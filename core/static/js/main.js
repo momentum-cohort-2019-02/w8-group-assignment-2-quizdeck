@@ -62,7 +62,7 @@ function get_cards(url) {
     }))
 }
 
-function addMarkButtons(div, card_div, answeredCards) {
+function addMarkButtons(div, card_div, answeredCards, score, cards) {
   // Listener to mark right or wrong
   div.addEventListener('click', function(event) {
     if (event.target.classList[1] === 'answer') {
@@ -71,6 +71,10 @@ function addMarkButtons(div, card_div, answeredCards) {
       fetch('/core/mark_card/', {method: 'POST', headers: {'X-CSRFToken': Cookies.get('csrftoken'),'Content-Type': 'application/json'}, body: JSON.stringify(body)})
         .then(response => response.json()).then(function(data) {
           answeredCards.push(card_div.innerHTML)
+          score += data['value']
+          if (answeredCards.length === cards.length) {
+            qS('.play').innerHTML = `<h2 class="end-play">Thanks for playing! You got ${score} out of ${cards.length} correct.</h2>`
+          }
           console.log(data)
           div.innerHTML = data['message']
         })
@@ -80,6 +84,7 @@ function addMarkButtons(div, card_div, answeredCards) {
 
 function play(cards) {
   // Shows the question of the first card in the shuffled list
+  let score = 0
   let card_div = document.querySelector('.card')
   let card = cards[0]
   let answeredCards = []
@@ -101,11 +106,11 @@ function play(cards) {
     }
     card_div.innerHTML = card[0]
     if (!(answeredCards.includes(card_div.innerHTML))){
-      qS('.right-wrong-buttons').innerHTML = '<div class="right answer">I got it right!</div><div class="wrong answer">Show me again...</div>'
+      qS('.right-wrong-buttons').innerHTML = "<div class='right answer'>I got it right!</div><div class='wrong answer'>I don't know</div>"
     } else {qS('.right-wrong-buttons').innerHTML = '<span>You already answered.</span>'}
   })
   
-  addMarkButtons(qS('.right-wrong-buttons'), card_div, answeredCards)
+  addMarkButtons(qS('.right-wrong-buttons'), card_div, answeredCards, score, cards)
 }
 
 
