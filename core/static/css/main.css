@@ -394,3 +394,8 @@
     color: #027cc8;
     border: 6px solid #027cc8;
 }
+
+.end-play {
+    margin-top: 15rem;
+    text-align: center;
+}

@@ -130,6 +130,7 @@ def mark_card(request):
         message = "Congrats!"
     else: 
         score.wrong_answers += 1
+        value = 0
         message = "OK, will do!"
     score.save()
 
