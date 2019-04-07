@@ -8,12 +8,12 @@
 <div class="container">
     <div class="row">
         <div class="col-m">
-            <h2 class="">Create Card</h2><br>
+            <h2 class="avenir b">Create Card</h2><br>
             
             <form method="POST" class="createcard">
                 {% csrf_token %}
                     {{ card_form.as_p }}
-                    <button type="submit" class="createbutton hvr-skew">Create</button>
+                    <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
             </form>
 
             <div class="row">
@@ -26,11 +26,11 @@
         </div>
         
         <div class="col-m">
-                <h2 class="">Create Deck</h2><br>
+                <h2 class="avenir b">Create Deck</h2><br>
                 <form method="POST" class="createcard">
                     {% csrf_token %}
                         {{ deck_form.as_p }}
-                        <button type="submit" class="createbutton hvr-skew">Create</button>
+                        <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
                 </form>
             <div class="row">
                 <p>Preview</p>

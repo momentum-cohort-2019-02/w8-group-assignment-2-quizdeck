@@ -12,10 +12,12 @@
     padding: 2rem 4rem;
     color: white;
     background-color: #027cc8;
+    
 }
 
 .decks-banner {
     background-color: #02c8a7;
+    height: auto;
 }
 
 .create-banner {
@@ -28,12 +30,19 @@
 
 .logo {
     display: flex;
+    height: 3rem;
+}
+
+.cogs {
+    color: #d4d4b6;
+
 }
 
 .head-link {
     color: white;
     text-decoration: none;
     flex: auto;
+    font-weight: bold;
 }
 
 .head-link:hover {
@@ -63,7 +72,6 @@
     background-color: #02c8a7;
 }
 
-
 .create-option {
     background-color: #f53240;
 }
@@ -81,7 +89,7 @@
     text-align: center;
     border: 2px solid black;
     box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
-    width: 300px;
+    width: 320px;
     padding: 2rem;
 }
 
@@ -302,6 +310,7 @@
 
 .username:hover {
     color: white;
+    text-decoration:none;
 }
 
 .profile-nav {
