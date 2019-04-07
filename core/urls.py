@@ -19,4 +19,5 @@ urlpatterns = [
     path('mark_card/', views.mark_card, name='mark_card'),
     path('users/<str:username>/', views.profile_page, name='profile_page'),
     path('users/<str:username>/decks/', views.profile_decks, name='profile_decks'),
+    path('profile_get_decks/', views.profile_get_decks, name='profile_get_decks'),
 ]

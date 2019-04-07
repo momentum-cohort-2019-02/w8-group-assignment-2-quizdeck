@@ -13,6 +13,8 @@ class Card(models.Model):
     categories = models.ManyToManyField('Category', blank=True)
     decks = models.ManyToManyField('Deck', related_name="cards")
     scores = models.ManyToManyField(User, related_name='card_scores', through='Score')
+    author = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=None, null=True, related_name='cards_authored')
+    owners = models.ManyToManyField(User, related_name='cards_owned')
     
     slug = models.SlugField(unique=True)
     

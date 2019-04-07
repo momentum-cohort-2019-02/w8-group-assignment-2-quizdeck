@@ -356,5 +356,46 @@
     margin-bottom: 1rem;
 }
 
+<<<<<<< HEAD
 /* possible tab content on Create: */
 
+=======
+.profile-options {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin: 2rem auto;
+}
+
+.profile-option {
+    background-color: #d4d4b6;
+    color: white;
+    font-size: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    border-radius: 50px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: center;
+    text-decoration:none;
+    height: 4rem;
+
+}
+
+.profile-option:hover {
+    background-color:#027cc8;
+}
+
+.profile-option.active {
+    background-color: white;
+    color: #d4d4b6;
+    border: 6px solid #d4d4b6;
+}
+
+.profile-option.active:hover {
+    color: #027cc8;
+    border: 6px solid #027cc8;
+}
+>>>>>>> 24c64feb84025147d28e19a07ac0b4db77f57ee4
