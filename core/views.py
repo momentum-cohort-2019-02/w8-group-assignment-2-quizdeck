@@ -1,14 +1,18 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import View
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import View, FormView, TemplateView
 from django.views import generic
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 import json
 from django.core.paginator import Paginator
 
+from django.urls import reverse, reverse_lazy
+
 # from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Our App imports:
 from core.forms import CreateCardForm, NewDeckForm
@@ -29,34 +33,6 @@ def index(request):
     return response
 
 
-def create(request):
-    """View function for creating a card."""
-    response = render(request, 'create.html', {
-    })
-    return response
-
-def create_card(request):   
-    """View function for CreateCardForm ."""
-
-    if request.method == 'POST':
-        form = CreateCardForm(request.POST
-        )
-        if form.is_valid():
-            card = form.save(commit=False)
-            card.save()
-            return redirect(card.get_absolute_url())
-        else:
-            form = CreateCardForm()
-        template = 'create_card.html'
-        context = {'form': form}
-        return render(request, template, context)
-    
-    form = CreateCardForm()
-    template = 'create_card.html'
-    context = {'form': form}
-    return render(request, template, context)
-
-
 def play(request):
     """View function for starting a game."""
     response = render(request, 'play.html', {
@@ -71,26 +47,6 @@ def deck_detail(request, slug):
     })
     return response
 
-# def create_card(request):   
-#     """View function for CreateCardForm ."""
-
-#     if request.method == 'POST':
-#         form = CreateCardForm(request.POST
-#         )
-#         if form.is_valid():
-#             card = form.save(commit=False)
-#             card.save()
-#             return redirect(card.get_absolute_url())
-#         else:
-#             form = CreateCardForm()
-#         template = 'create_card.html'
-#         context = {'form': form}
-#         return render(request, template, context)
-    
-#     form = CreateCardForm()
-#     template = 'create_card.html'
-#     context = {'form': form}
-#     return render(request, template, context)
 
 def card_detail(request, slug):
     """View function for deck detail."""
@@ -129,29 +85,38 @@ def my_decks(request):
         "decks": decks,
     })
     
-def new_deck(request):
-    if request.method == 'POST':
-        form = NewDeckForm(request.POST
-        )
-        if form.is_valid():
-            deck = form.save(commit=False)
-            deck.save()
-            return redirect(deck.get_absolute_url())
-        else:
-            form = NewDeckForm()
-        template = 'create-deck.html'
-        context = {'form': form}
-        return render(request, template, context)
-    
-    form = NewDeckForm()
-    template = 'create-deck.html'
-    context = {'form': form}
-    return render(request, template, context)
     
 def get_deck(request, slug):
     deck = Deck.objects.get(slug=slug)
     cards = deck.cards.all()
     return JsonResponse({'cards': [(card.question, card.answer) for card in cards]})
+
+def create_all(request):
+    
+    if request.method == 'POST':
+        deck_form = NewDeckForm(request.POST)
+        card_form = CreateCardForm(request.POST)
+        
+        if deck_form.is_valid():
+            deck = deck_form.save(commit=False)
+            deck.save()
+            return redirect(deck.get_absolute_url())
+
+        if card_form.is_valid():
+            card = card_form.save(commit=False)
+            card.save()
+            return redirect(card.get_absolute_url())
+
+    else:
+        card_form = CreateCardForm()
+        deck_form = NewDeckForm()
+            
+    return render(request, 'create.html', {
+        'card_form': card_form,
+        'deck_form': deck_form,
+    })
+
+
 
 def mark_card(request):
     data = json.loads(request.body)
