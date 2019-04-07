@@ -5,12 +5,14 @@
 <h2>{{ user.username }}'s Decks</h2>
 
 <div class="profile-options">
-    <div class="profile-option authored">Authored Decks</div>
+    <div class="profile-option authored active">Authored Decks</div>
     <div class="profile-option owned">Owned Decks</div>
 </div>
 <div class="profile-decks"></div>
 
-{% comment %} <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a> {% endcomment %}
+{% for deck in decks %}
+<i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+{% endfor %}
 
 <center><div class="paginator">
         {% if decks.has_previous %}

@@ -153,3 +153,13 @@ def profile_decks(request, username):
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
     return render(request, 'profile_decks.html', {'user': user, 'decks': decks})
+
+def profile_get_decks(request):
+    data = json.loads(request.body)
+    user = User.objects.get(username=data['username'])
+    if data['deckRel'] == 'authored':
+        decks = user.decks_authored.all()
+    elif data['deckRel'] == 'owned':
+        decks = user.decks_owned.all()
+        
+    return render(request, 'partials/profile_get_decks.html', {'decks': decks})

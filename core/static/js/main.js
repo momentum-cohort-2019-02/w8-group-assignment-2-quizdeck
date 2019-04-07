@@ -107,7 +107,7 @@ function play(cards) {
 }
 
 
-// Checking to make sure we are on the right page
+// Checking to see what page we are on before doing stuff
 if ( document.URL.includes("random_play") ) {
   window.addEventListener('DOMContentLoaded', function () {
     get_cards('/core/get_cards/').then(cards => play(cards))
@@ -122,12 +122,22 @@ if ( document.URL.includes("play_deck") ) {
   })
 }
 
-
-
 if ( document.URL.includes('users') && document.URL.includes('decks') ) {
   qS('.profile-options').addEventListener('click', function(event) {
+    let urlWords = document.URL.split('/')
+    let username = urlWords[urlWords.length-3]
+    let body = {"username": username}
     if (event.target.classList.contains('authored')) {
-
+      body["deckRel"] = 'authored'
+    } else if (event.target.classList.contains('owned')) {
+      body["deckRel"] = 'owned'
     }
+    fetch('/core/profile_get_decks/', {method: 'POST', body: JSON.stringify(body), headers: {'X-CSRFToken': Cookies.get('csrftoken'),'Content-Type': 'application/json'}})
+      .then(function(response) { 
+        return response.text()
+      })
+      .then(text => {
+        qS('.profile-decks').innerHTML = text
+      })
   })
 }

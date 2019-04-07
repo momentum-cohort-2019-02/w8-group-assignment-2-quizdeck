@@ -346,3 +346,23 @@
     padding: 1rem;
     margin-bottom: 1rem;
 }
+
+.profile-options {
+    display: flex;
+}
+
+.profile-option {
+    background-color: #d4d4b6;
+    color: white;
+    font-size: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+    border-radius: 50px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    justify-content: center;
+    text-decoration:none;
+    height: 4rem;
+}
