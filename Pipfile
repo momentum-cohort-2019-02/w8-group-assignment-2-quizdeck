@@ -13,6 +13,7 @@ gunicorn = "*"
 django-heroku = "*"
 django-debug-toolbar = "*"
 django-registration-redux = "*"
+django-jquery = "*"
 
 [requires]
 python_version = "3.7"
