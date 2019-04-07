@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ user.username }}'s Decks</h2>
+
+{% for deck in decks %}
+<i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+{% endfor %}
+
+<center><div class="paginator">
+        {% if decks.has_previous %}
+            <a class="paginator-links" href="?sorter={{ sorter }}&page=1"><i class="fas fa-angle-double-left"></i></a>
+            <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.previous_page_number }}"><i class="fas fa-chevron-circle-left"></i></a>
+        {% endif %}
+
+        <span class="current">
+            {{ decks.number }} of {{ decks.paginator.num_pages }}
+        </span>
+
+        {% if decks.has_next %}
+            <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.next_page_number }}"><i class="fas fa-chevron-circle-right"></i></a>
+            <a class="paginator-links" href="?sorter={{ sorter }}&page={{ decks.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+        {% endif %}
+</div></center>
+
+{% endblock %}
