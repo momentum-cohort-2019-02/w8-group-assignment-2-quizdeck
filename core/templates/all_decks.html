@@ -4,12 +4,7 @@
 
 {% block content %}
 
-<center><h1 class="">All Decks</h1></center>
-
-
-    <center><h3>Browse all decks</h3></center><br>
-
-
+<center><h1 class="avenir b f1 lh-title">All Decks</h1></center><br>
 
     {% for deck in decks %}
     <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
