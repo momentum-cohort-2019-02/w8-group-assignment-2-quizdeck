@@ -126,13 +126,14 @@ def mark_card(request):
     score, created = request.user.score_set.get_or_create(card=card)
     if data['mark'] == 'right':
         score.right_answers += 1
+        value = 1
         message = "Congrats!"
     else: 
         score.wrong_answers += 1
         message = "OK, will do!"
     score.save()
 
-    return JsonResponse({'message': message, 'right': score.right_answers, 'wrong': score.wrong_answers, 'created': created})
+    return JsonResponse({'message': message, 'value': value})
 
 def profile_page(request, username):
     user = User.objects.get(username=username)
