@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    
     #Our installed Apps
     'core.apps.CoreConfig',
+    'jquery',
     # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
     'debug_toolbar',
 ]

@@ -1,6 +1,8 @@
 /* globals fetch */
 const Cookies = require('js-cookie')
 const deepmerge = require('deepmerge')
+const jquery = require('jquery')
+const bootstrap = require('bootstrap')
 
 function qS (selector) {
   return document.querySelector(selector)
@@ -121,4 +123,10 @@ if ( document.URL.includes("play_deck") ) {
     get_cards(`/core/get_deck/${deckSlug}`).then(cards => play(cards))
   })
 }
+
+// possible tab content on Create:
+
+
+
+//Collapse: multiple triggers work together, adds aria-expanded
 
