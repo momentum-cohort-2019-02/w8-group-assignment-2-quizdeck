@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
+{% block bannerclass %}profiles-banner{% endblock %}
+
 {% block content %}
     <div class="card"></div>
     <div class="quiz-nav-buttons">
-        <div class="quiz-nav-button previous">Previous</div>
+        <div class="quiz-nav-button previous"><i class="fas fa-chevron-circle-left"></i></div>
         <div class="right-wrong-buttons">
             <div class="right answer">I got it right!</div>
             <div class="wrong answer">Show me again...</div>
         </div>
-        <div class="quiz-nav-button next">Next</div>
+        <div class="quiz-nav-button next"><i class="fas fa-chevron-circle-right"></i></div>
     </div>
 {% endblock %}

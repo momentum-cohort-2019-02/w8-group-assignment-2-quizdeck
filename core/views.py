@@ -78,6 +78,9 @@ def all_decks(request):
 
 def my_decks(request):
     decks = Deck.objects.all()
+    paginator = Paginator(decks, 6)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
     return render(request, 'my_decks.html', {
         "decks": decks,
     })
