@@ -358,6 +358,9 @@
 
 .profile-options {
     display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin: 2rem auto;
 }
 
 .profile-option {
@@ -374,4 +377,20 @@
     justify-content: center;
     text-decoration:none;
     height: 4rem;
+
+}
+
+.profile-option:hover {
+    background-color:#027cc8;
+}
+
+.profile-option.active {
+    background-color: white;
+    color: #d4d4b6;
+    border: 6px solid #d4d4b6;
+}
+
+.profile-option.active:hover {
+    color: #027cc8;
+    border: 6px solid #027cc8;
 }

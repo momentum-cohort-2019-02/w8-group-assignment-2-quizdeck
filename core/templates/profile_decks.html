@@ -8,11 +8,13 @@
     <div class="profile-option authored active">Authored Decks</div>
     <div class="profile-option owned">Owned Decks</div>
 </div>
-<div class="profile-decks"></div>
+<div class="profile-decks">
+    {% for deck in decks %}
+    <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+    {% endfor %}
+</div>
 
-{% for deck in decks %}
-<i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
-{% endfor %}
+
 
 <center><div class="paginator">
         {% if decks.has_previous %}

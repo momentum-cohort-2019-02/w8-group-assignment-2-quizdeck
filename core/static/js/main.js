@@ -132,6 +132,10 @@ if ( document.URL.includes('users') && document.URL.includes('decks') ) {
     } else if (event.target.classList.contains('owned')) {
       body["deckRel"] = 'owned'
     }
+    if (!event.target.classList.contains('active')) {
+      qS('.active').classList.remove('active')
+      event.target.classList.add('active')
+    } 
     fetch('/core/profile_get_decks/', {method: 'POST', body: JSON.stringify(body), headers: {'X-CSRFToken': Cookies.get('csrftoken'),'Content-Type': 'application/json'}})
       .then(function(response) { 
         return response.text()
