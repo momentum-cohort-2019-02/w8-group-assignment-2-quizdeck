@@ -19,7 +19,7 @@
     <body>
         <header>
             <div class="banner {% block bannerclass %}{% endblock %}">
-                <div class="logo"><i class="fa fa-cogs fa-3x"></i><h1> QuizDeck</h1></div>
+                <div class="logo"><h1> QuizDeck</h1><i class="fa fa-cogs fa-3x"></i></div>
                 {% if user.is_authenticated %}
                 <div>
                     <i class="fa fa-user fa-2x"></i><span> {{ user.get_username }} | </span>

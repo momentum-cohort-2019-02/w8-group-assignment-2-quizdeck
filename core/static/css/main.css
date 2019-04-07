@@ -34,6 +34,7 @@
     color: white;
     text-decoration: none;
     flex: auto;
+    font-weight: bold;
 }
 
 .head-link:hover {

@@ -13,7 +13,7 @@
             <form method="POST" class="createcard">
                 {% csrf_token %}
                     {{ card_form.as_p }}
-                    <button type="submit" class="createbutton hvr-skew">Create</button>
+                    <button type="submit" class="createbutton hvr-fade">Create</button>
             </form>
 
             <div class="row">
@@ -30,7 +30,7 @@
                 <form method="POST" class="createcard">
                     {% csrf_token %}
                         {{ deck_form.as_p }}
-                        <button type="submit" class="createbutton hvr-skew">Create</button>
+                        <button type="submit" class="createbutton hvr-fade">Create</button>
                 </form>
             <div class="row">
                 <p>Preview</p>
