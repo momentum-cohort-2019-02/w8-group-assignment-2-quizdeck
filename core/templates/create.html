@@ -6,41 +6,63 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-m">
-            <h2 class="avenir b">Create Card</h2><br>
-            
-            <form method="POST" class="createcard">
-                {% csrf_token %}
-                    {{ card_form.as_p }}
-                    <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
-            </form>
 
+<!-- Tab possibility: -->
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">+ Create Card</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">+ New Deck</a>
+        </li>
+    </ul>
+
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="row">
-                <p>Preview</p>
+                <div class="col-m">
+                    <h2 class="avenir b">Create Card</h2><br>
+                
+                    <form method="POST" class="createcard">
+                        {% csrf_token %}
+                            {{ card_form.as_p }}
+                            <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
+                    </form>
+                </div>
+                <div class="col-m">
+                        <div class="row">
+                                <p>Preview</p>
+                            </div>
+                
+                            <div class="row">
+                                <p>Decks</p>       
+                            </div>    
+                        </div>
+                </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row">
+                <div class="col-m">
+                    <form method="POST" class="createcard">
+                        {% csrf_token %}
+                            {{ deck_form.as_p }}
+                            <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
+                    </form>
+                </div>
+                <div class="col-m">
+                    <div class="row">
+                            <p>Preview</p>
+                    </div>
+        
+                    <div class="row">
+                        <p>Cards</p>       
+                    </div>    
+                </div>
             </div>
-
-            <div class="row">
-                <p>Decks</p>       
-            </div>    
         </div>
         
-        <div class="col-m">
-                <h2 class="avenir b">Create Deck</h2><br>
-                <form method="POST" class="createcard">
-                    {% csrf_token %}
-                        {{ deck_form.as_p }}
-                        <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
-                </form>
-            <div class="row">
-                <p>Preview</p>
-            </div>
-
-            <div class="row">
-                <p>Cards</p>       
-            </div>          
-        
-        </div>
     </div>
 </div>
 
