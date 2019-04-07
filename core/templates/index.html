@@ -5,11 +5,11 @@
 {% block title %}<title>QuizDeck</title>{% endblock %}
 
 {% block content %}
-    <center><h1>Deck Menu</h1><br></center>
+    <center><h1 class="avenir b f1 lh-title">Deck Menu</h1><br></center>
     <!-- <h3>Select All Decks or My Decks to continue.</h3></center> -->
     <center><div>
-        <a class="decksbutton hvr-fade" href="{% url 'all_decks' %}"><i class="fas fa-users"></i>&nbspAll Decks<i class="material-icons-menu">view_carousel</i></a>
-        <a class="decksbutton hvr-fade" href="{% url 'my_decks' %}"><i class="fas fa-user"></i>&nbspMy Decks<i class="material-icons-menu">view_carousel</i></a>
+        <a class="decksbutton hvr-fade avenir b" href="{% url 'all_decks' %}"><i class="fas fa-users"></i>&nbspAll Decks<i class="material-icons-menu">view_carousel</i></a>
+        <a class="decksbutton hvr-fade avenir b" href="{% url 'my_decks' %}"><i class="fas fa-user"></i>&nbspMy Decks<i class="material-icons-menu">view_carousel</i></a>
     </div></center>
 
 {% endblock %}
