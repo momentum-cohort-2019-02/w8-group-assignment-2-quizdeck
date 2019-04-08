@@ -15,6 +15,10 @@
 
 <div>Description: {{ deck.description }}</div><br>
 
+<div>Author: {{ deck.author }}</div>
+
+<div>Added: {{ deck.added }}</div>
+
 <div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'play_deck' slug=deck.slug %}">Play</a></div>
 
 {% if user.is_authenticated %}
