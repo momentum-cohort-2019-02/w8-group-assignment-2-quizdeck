@@ -107,7 +107,7 @@ def create_all(request):
         if card_form.is_valid():
             card = card_form.save(commit=False)
             card.author = request.user
-            request.user.cards_owned.add(card)
+            request.user.cards_owned.add()
             card.save()
             return redirect(card.get_absolute_url())
 
