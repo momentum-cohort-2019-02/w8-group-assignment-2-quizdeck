@@ -8,8 +8,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('create/', views.create_all, name='create'),
     path('play/', views.play, name='play'),
-    path('deck_detail/<slug:slug>', views.deck_detail, name='deck_detail'),
-    path('card_detail/<slug:slug>', views.card_detail, name='card_detail'),
+    path('deck_detail/<slug:slug>/', views.deck_detail, name='deck_detail'),
+    path('decks/<slug:slug>/cards', views.deck_card_list, name='deck_card_list'),
+    path('card_detail/<slug:slug>/', views.card_detail, name='card_detail'),
     path('random_play/', views.random_play, name='random_play'),
     path('get_cards/', views.get_cards, name='get_cards'),
     path('all_decks/', views.all_decks, name='all_decks'),
@@ -19,7 +20,8 @@ urlpatterns = [
     path('mark_card/', views.mark_card, name='mark_card'),
     path('users/<str:username>/', views.profile_page, name='profile_page'),
     path('users/<str:username>/decks/', views.profile_decks, name='profile_decks'),
+    path('users/<str:username>/cards/', views.profile_cards, name='profile_cards'),
     path('profile_get_decks/', views.profile_get_decks, name='profile_get_decks'),
+    path('profile_get_cards/', views.profile_get_cards, name='profile_get_cards'),
     path('edit_deck/', views.edit_deck, name='edit_deck'),
-
 ]

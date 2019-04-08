@@ -4,6 +4,9 @@ const deepmerge = require('deepmerge')
 const jquery = require('jquery')
 const bootstrap = require('bootstrap')
 
+
+
+
 function qS (selector) {
   return document.querySelector(selector)
 }
@@ -149,6 +152,30 @@ if ( document.URL.includes('users') && document.URL.includes('decks') ) {
       })
       .then(text => {
         qS('.profile-decks').innerHTML = text
+      })
+  })
+}
+
+if ( document.URL.includes('users') && document.URL.includes('cards') ) {
+  qS('.profile-options').addEventListener('click', function(event) {
+    let urlWords = document.URL.split('/')
+    let username = urlWords[urlWords.length-3]
+    let body = {"username": username}
+    if (event.target.classList.contains('authored')) {
+      body["cardRel"] = 'authored'
+    } else if (event.target.classList.contains('owned')) {
+      body["cardRel"] = 'owned'
+    }
+    if (!event.target.classList.contains('active')) {
+      qS('.active').classList.remove('active')
+      event.target.classList.add('active')
+    } 
+    fetch('/core/profile_get_cards/', {method: 'POST', body: JSON.stringify(body), headers: {'X-CSRFToken': Cookies.get('csrftoken'),'Content-Type': 'application/json'}})
+      .then(function(response) { 
+        return response.text()
+      })
+      .then(text => {
+        qS('.profile-cards').innerHTML = text
       })
   })
 }

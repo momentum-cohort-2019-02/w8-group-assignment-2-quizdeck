@@ -6,6 +6,9 @@
         "jquery": "^3.3.1",
         "js-cookie": "^2.2.0",
         "popper.js": "^1.15.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "remarkable-react": "^1.4.1",
         "utils": "^0.3.1",
         "watchify": "^3.11.1"
     },

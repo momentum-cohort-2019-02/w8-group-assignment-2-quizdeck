@@ -31,7 +31,7 @@
 <div><a href="{% url 'auth_login'%}?next={{request.path}}" class="createbutton hvr-fade">Edit Deck</a></div>   
 {% endif %}
 
-<div><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">View Cards</a></div></div>
+<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'deck_card_list' slug=deck.slug %}">View Cards</a></div></div>
 
 
 <!-- Get deck (if user doesn't own it)
