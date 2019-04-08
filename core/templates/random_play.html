@@ -3,13 +3,15 @@
 {% block bannerclass %}profiles-banner{% endblock %}
 
 {% block content %}
-    <div class="card"></div>
-    <div class="quiz-nav-buttons">
-        <div class="quiz-nav-button previous hvr-fade"><i class="fas fa-chevron-circle-left"></i></div>
-        <div class="right-wrong-buttons">
-            <div class="right answer hvr-fade">I got it right!</div>
-            <div class="wrong answer hvr-fade">Show me again...</div>
+    <div class="play">
+        <div class="card"></div>
+        <div class="quiz-nav-buttons">
+            <div class="quiz-nav-button previous hvr-fade"><i class="fas fa-chevron-circle-left"></i></div>
+            <div class="right-wrong-buttons">
+                <div class="right answer hvr-fade">I got it right!</div>
+                <div class="wrong answer hvr-fade">I don't know</div>
+            </div>
+            <div class="quiz-nav-button next hvr-fade"><i class="fas fa-chevron-circle-right"></i></div>
         </div>
-        <div class="quiz-nav-button next hvr-fade"><i class="fas fa-chevron-circle-right"></i></div>
     </div>
 {% endblock %}
