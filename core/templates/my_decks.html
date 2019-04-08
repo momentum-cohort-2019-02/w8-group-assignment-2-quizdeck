@@ -6,9 +6,9 @@
 
 <center><h1 class="avenir b f1 lh-title">My Decks</h1></center><br>
 
-    {% for deck in decks %}
-    <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
-    {% endfor %}
+    <center>{% for deck in decks %}
+        <i class="material-icons-select">view_carousel</i><a href="{% url 'deck_detail' slug=deck.slug %}">{{ deck.title }}</a>
+        {% endfor %}</center>
 
     <center><div class="paginator">
             {% if decks.has_previous %}
