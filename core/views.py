@@ -100,15 +100,15 @@ def create_all(request):
         if deck_form.is_valid():
             deck = deck_form.save(commit=False)
             deck.author = request.user
-            request.user.decks_owned.add()
             deck.save()
+            request.user.decks_owned.add(deck)
             return redirect(deck.get_absolute_url())
 
         if card_form.is_valid():
             card = card_form.save(commit=False)
             card.author = request.user
-            request.user.cards_owned.add()
             card.save()
+            request.user.cards_owned.add(card)
             return redirect(card.get_absolute_url())
 
     else:
@@ -131,7 +131,7 @@ def mark_card(request):
     else: 
         score.wrong_answers += 1
         value = 0
-        message = "OK, will do!"
+        message = "OK, keep trying!"
     score.save()
 
     return JsonResponse({'message': message, 'value': value})
@@ -145,16 +145,21 @@ def profile_page(request, username):
         rights += score.right_answers
         total += score.right_answers
         total += score.wrong_answers
-    percent = int(100*(rights/total))
+    if total != 0:
+        percent = f'{int(100*(rights/total))}%'
+    else:
+        percent = "No guesses"
     return render(request, 'profile_page.html', {'user': user, 'percent': percent})
 
 def profile_decks(request, username):
     user = User.objects.get(username=username)
     decks = user.decks_authored.all()
-    paginator = Paginator(decks, 6)
-    page = request.GET.get('page', 1)
-    decks = paginator.get_page(page)
     return render(request, 'profile_decks.html', {'user': user, 'decks': decks})
+
+def profile_cards(request, username):
+    user = User.objects.get(username=username)
+    cards = user.cards_authored.all()
+    return render(request, 'profile_cards.html', {'user': user, 'cards': cards})
 
 def profile_get_decks(request):
     data = json.loads(request.body)
@@ -165,3 +170,18 @@ def profile_get_decks(request):
         decks = user.decks_owned.all()
         
     return render(request, 'partials/profile_get_decks.html', {'decks': decks})
+
+def profile_get_cards(request):
+    data = json.loads(request.body)
+    user = User.objects.get(username=data['username'])
+    if data['cardRel'] == 'authored':
+        cards = user.cards_authored.all()
+    elif data['cardRel'] == 'owned':
+        cards = user.cards_owned.all()
+        
+    return render(request, 'partials/profile_get_cards.html', {'cards': cards})
+
+def deck_card_list(request, slug):
+    deck = Deck.objects.get(slug=slug)
+    cards = deck.cards.all()
+    return render(request, 'deck_card_list.html', {'cards': cards, 'deck': deck})

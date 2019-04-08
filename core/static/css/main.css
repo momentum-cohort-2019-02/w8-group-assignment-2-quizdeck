@@ -414,3 +414,28 @@
     margin-top: 15rem;
     text-align: center;
 }
+
+.list-card {
+    margin: auto;
+    width: 30%;
+    min-width: 20rem;
+    text-align: center;
+    padding: 5rem;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    border-radius: 5px;
+    margin: 1%;
+    color: black;
+}
+
+.list-card:hover {
+    color: #027cc8;
+    border: 2px solid #027cc8;
+    text-decoration: none;
+}
+
+.card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
