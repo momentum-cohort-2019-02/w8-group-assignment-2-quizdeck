@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ user.username }}'s Cards</h2>
+
+<div class="profile-options">
+    <div class="profile-option authored active">Authored cards</div>
+    <div class="profile-option owned">Owned cards</div>
+</div>
+<div class="profile-cards card-holder">
+    {% for card in cards %}
+    <a class="list-card" href="{% url 'card_detail' slug=card.slug %}">
+        {{ card.question }}
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

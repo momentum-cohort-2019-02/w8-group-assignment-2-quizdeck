@@ -1,0 +1,5 @@
+{% for card in cards %}
+    <a class="list-card" href="{% url 'card_detail' slug=card.slug %}">
+        {{ card.question }}
+    </a>
+{% endfor %}
