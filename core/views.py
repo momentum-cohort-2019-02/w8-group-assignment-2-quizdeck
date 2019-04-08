@@ -165,3 +165,8 @@ def profile_get_decks(request):
         decks = user.decks_owned.all()
         
     return render(request, 'partials/profile_get_decks.html', {'decks': decks})
+
+def edit_deck(request):
+    response = render(request, 'edit_deck.html', {
+    })
+    return response

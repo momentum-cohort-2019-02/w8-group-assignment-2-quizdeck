@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block bannerclass %}decks-banner{% endblock %}
+
+{% block content %}
+
+<center><h2 class="avenir b">Edit {{ deck.title }} Deck</h2></center>
+
+<div><a class="createbutton hvr-fade" href="{% url 'index'%}">View Cards</a></div>
+
+<div class="">
+    <form method="POST" class="">
+        {% csrf_token %}
+            {{ deck_form.as_p }}
+            <button type="submit" class="createbutton hvr-fade avenir b">Add Card</button>
+    </form>
+</div>
+
+<div class="">
+    <form method="POST" class="">
+        {% csrf_token %}
+            {{ deck_form.as_p }}
+            <button type="submit" class="createbutton hvr-fade avenir b">Remove Card</button>
+    </form>
+</div>
+
+<div class="">
+    <form method="POST" class="">
+        {% csrf_token %}
+            {{ deck_form.as_p }}
+            <button type="submit" class="createbutton hvr-fade avenir b">Delete Deck</button>
+    </form>
+</div>
+
+
+{% endblock %}

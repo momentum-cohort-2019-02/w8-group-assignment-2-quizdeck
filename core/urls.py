@@ -20,4 +20,6 @@ urlpatterns = [
     path('users/<str:username>/', views.profile_page, name='profile_page'),
     path('users/<str:username>/decks/', views.profile_decks, name='profile_decks'),
     path('profile_get_decks/', views.profile_get_decks, name='profile_get_decks'),
+    path('edit_deck/', views.edit_deck, name='edit_deck'),
+
 ]

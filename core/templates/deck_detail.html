@@ -7,7 +7,7 @@
 <!-- Add icons/navigation -->
 
 
-<center><h2 class="">{{ deck.title }} Deck Info</h2></center>
+<center><h2 class="avenir b">{{ deck.title }} Deck Info</h2></center>
 
 <div>Deck Name: {{ deck.title }}</div><br>
 
@@ -15,23 +15,23 @@
 
 <div>Description: {{ deck.description }}</div><br>
 
-<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'play_deck' slug=deck.slug %}">Play</a></div>
+<div><i></i><a class="createbutton hvr-fade" href="{% url 'play_deck' slug=deck.slug %}">Play</a></div>
 
 {% if user.is_authenticated %}
-<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Get Deck</a></div>   
+<div><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Get Deck</a></div>   
 {% else %}
 <div><a href="{% url 'auth_login'%}?next={{request.path}}" class="createbutton hvr-fade">Get Deck</a></div>   
 {% endif %}
 
 {% if user.is_authenticated %}
 {% if request.user is deck.author %}
-<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">Edit Deck</a></div>   
+<div><a href="{% url 'edit_deck'%}" class="createbutton hvr-fade">Edit Deck</a></div>   
 {% endif %}
 {% else %}
 <div><a href="{% url 'auth_login'%}?next={{request.path}}" class="createbutton hvr-fade">Edit Deck</a></div>   
 {% endif %}
 
-<div class="play"><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">View Cards</a></div></div>
+<div><i></i><a class="createbutton hvr-fade" href="{% url 'index'%}">View Cards</a></div></div>
 
 
 <!-- Get deck (if user doesn't own it)
