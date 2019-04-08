@@ -8,7 +8,7 @@
     <p class="stat">Decks Owned: {{ user.decks_owned.count }}</p>
     <p class="stat">Cards Authored: {{ user.cards_authored.count }}</p>
     <p class="stat">Cards Owned: {{ user.cards_owned.count }}</p>
-    <p class="stat">Correct Guesses: {{ percent }}%</p>
+    <p class="stat">Correct Guesses: {{ percent }}</p>
 </div>
 
 <div class="profile-nav">
@@ -18,7 +18,7 @@
     </div>
     <div class="profile-part">
         <i class="fa fa-question-circle"></i><br>
-        <a class="createbutton" href="">{{ user.username }}'s Cards</a>
+        <a class="createbutton" href="{% url 'profile_cards' username=user.username %}">{{ user.username }}'s Cards</a>
     </div>
 </div>
 
