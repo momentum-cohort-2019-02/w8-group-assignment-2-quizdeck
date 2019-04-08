@@ -439,3 +439,12 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.carddetail {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    width: 60%;
+    padding: 2rem;
+}
