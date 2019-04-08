@@ -21,39 +21,45 @@
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row">
+            <div class="row createcard">
                 <div class="col-m">
                     <h2 class="avenir b">Create Card</h2><br>
                 
-                    <form method="POST" class="createcard">
+                    <form method="POST" class="">
                         {% csrf_token %}
                             {{ card_form.as_p }}
                             <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
                     </form>
                 </div>
                 <div class="col-m">
-                        <div class="row">
-                                <p>Preview</p>
-                            </div>
-                
-                            <div class="row">
-                                <p>Decks</p>       
-                            </div>    
+                    <div class="row">
+                        <p>Preview</p>
+                        <div id="card-preview" class="card-preview">
+                                    
                         </div>
+            
+                        <div class="row">
+                            <p>Decks</p>       
+                        </div>     
+                    </div>
                 </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="row">
+            <div class="row createcard">
                 <div class="col-m">
-                    <form method="POST" class="createcard">
+                    <form method="POST" class="">
                         {% csrf_token %}
-                            {{ deck_form.as_p }}
-                            <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
+                        {{ deck_form.as_p }}
+                        <button type="submit" class="createbutton hvr-fade avenir b">Create</button>
                     </form>
                 </div>
                 <div class="col-m">
                     <div class="row">
-                            <p>Preview</p>
+                        <p>Preview</p>
+                        <div class="card-preview">
+                                    
+                        </div>
                     </div>
         
                     <div class="row">

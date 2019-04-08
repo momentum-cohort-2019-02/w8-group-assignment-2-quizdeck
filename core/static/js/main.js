@@ -3,6 +3,9 @@ const Cookies = require('js-cookie')
 const deepmerge = require('deepmerge')
 const jquery = require('jquery')
 const bootstrap = require('bootstrap')
+const react = require('react')
+
+import React, { Component } from 'react';
 
 function qS (selector) {
   return document.querySelector(selector)
@@ -147,3 +150,61 @@ if ( document.URL.includes('users') && document.URL.includes('decks') ) {
       })
   })
 }
+
+// updating card preview
+
+// class CreateCardForm extends React.Component {
+//   constructor(props) {
+//       super(props);
+//       this.state = {
+//           question: ' ',
+//           answer: ' '
+//       };
+//   }
+
+//   handleChange = (e) => {
+//       this.setState({
+//           [e.target.question]: e.target.value
+//       })
+//   }
+
+//  onSubmit = (e) => {
+//      e.preventDefault();
+//      const card_form = {
+//       question: this.state.question,
+//       answer: this.state.answer
+//      }
+//        {/* -----------you would send data to API to get results, I used database for ease, this also clears the form on submit----------------*/}
+//      database.push(form);
+//      this.setState({
+//       question: '',
+//       answer: ''
+//      })
+//   }
+
+//   render() {
+//       return (
+//           <div>
+//           <form>
+//               <label>
+//                   Question:
+//                   <input
+//                       name='question'
+//                       value={this.state.question}
+//                       onChange={e => this.handleChange(e)}/>
+//               </label>
+//               <label>
+//                   Answer:
+//                   <input 
+//                       name='answer'
+//                       value={this.state.answer} 
+//                       onChange={e => this.handleChange(e)}/>
+//               </label>
+//               <button onClick={(e) => this.onSubmit(e)}>Create</button>         
+//           </form>
+//           </div>
+//       );
+//   }
+// }
+
+// export default CreateCardForm;
