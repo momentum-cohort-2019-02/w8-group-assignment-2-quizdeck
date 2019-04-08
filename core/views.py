@@ -100,7 +100,7 @@ def create_all(request):
         if deck_form.is_valid():
             deck = deck_form.save(commit=False)
             deck.author = request.user
-            request.user.decks_owned.add(deck)
+            request.user.decks_owned.add()
             deck.save()
             return redirect(deck.get_absolute_url())
 
