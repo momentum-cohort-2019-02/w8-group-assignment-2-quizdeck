@@ -3,10 +3,16 @@
 {% block title %}<title>QuizDeck</title>{% endblock %}
 
 {% block content %}
-<center><div class="createcard"><h2>Question</h2><br>
+<center><div class="carddetail"><h2>Question</h2><br>
 <p>{{ card.question }}</p></div></center><br><br>
 
-<center><div class="createcard"><h2 class="">Answer</h2><br>
+<center><div class="carddetail"><h2 class="">Answer</h2><br>
 <p>{{ card.answer }}</p></div></center>
+
+<div>
+    <ul>
+        <li>Author: {{ card.author  }}</li>
+    </ul>
+</div>
 
 {% endblock %}

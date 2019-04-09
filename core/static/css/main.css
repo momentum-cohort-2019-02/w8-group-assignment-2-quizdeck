@@ -395,21 +395,6 @@
     border: 6px solid #027cc8;
 }
 
-
-/* Preview styles */
-
-.card-preview {
-    margin: auto;
-    width: 450px;
-    /* max-width: 40rem; */
-    text-align: center;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-    border: 2px solid black;
-    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
-    border-radius: 5px;
-}
-
 .end-play {
     margin-top: 15rem;
     text-align: center;
@@ -438,4 +423,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.carddetail {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: -2px 5px 5px 1px rgb(158, 158, 158);
+    width: 60%;
+    padding: 2rem;
 }
